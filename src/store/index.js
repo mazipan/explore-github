@@ -4,8 +4,10 @@ import { state, mutations, actions } from './mutations'
 
 Vue.use(Vuex)
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state,
   mutations,
   actions
 })
+
+export default store
