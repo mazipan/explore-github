@@ -1,6 +1,6 @@
 <template>
   <div class="grid__row">
-    <h1>This is Home</h1>
+    <h1>This is Home Router</h1>
   </div>
 </template>
 
