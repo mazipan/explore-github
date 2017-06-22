@@ -31,7 +31,9 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  path: config.dev.assetsPublicPath + '__webpack_hmr',
+  reload: true, // <= I changed this. Do we need it?
+  log: console.log // <= I added this. I prefer more feedback in my console.
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
