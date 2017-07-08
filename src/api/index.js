@@ -9,8 +9,7 @@ function getDataViaApi (path, cb, errorHandler, payload) {
   Vue.http.get(path, {
     params: payload,
     headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'Cache-Control': 'no-cache'
+      'Accept': 'application/vnd.github.v3+json'
     }
   }).then((res) => {
     cb(res)

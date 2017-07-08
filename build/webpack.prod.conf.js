@@ -89,7 +89,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // run post script to merge all js into one single index.js and rename app.[hash].css to index.css
     new WebpackShellPlugin({
       onBuildStart: ['echo "Starting"'],
-      onBuildEnd: ['node ' + __dirname + '/post-build.js']
+      // onBuildEnd: ['node ' + __dirname + '/post-build.js']
     })
     
   ]
