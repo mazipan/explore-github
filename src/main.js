@@ -2,16 +2,22 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import router from './router'
-import {store} from './store'
+import VueResource from 'vue-resource'
+import router from 'src/router'
+import store from 'src/store'
 import App from 'App'
 
+Vue.use(VueResource)
+
 if (process.env.NODE_ENV !== 'production') {
-  if (process.env.MOCK_ENV === 'mock') {
-    require('vue-mock')
-  }
+  require('vue-mock')
   Vue.config.devtools = true
 }
+
+require("octicons/build/octicons.min.css")
+var octicons = require("octicons")
+let svg = octicons.broadcast.toSVG({ "width": 100 })
+console.log(svg)
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-
-import MockRoutes from 'mock/mock-routes'
+import MockRoutes from 'src/api/mock'
 
 let routes = MockRoutes.routes
 

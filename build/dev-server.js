@@ -53,7 +53,9 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(require('connect-history-api-fallback')({
+  index: config.dev.assetsPublicPath + 'index.html'
+}))
 
 // serve webpack bundle output
 app.use(devMiddleware)
@@ -66,7 +68,19 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://localhost:' + port
+app.use('/' + config.dev.assetsSubDirectory, express.static('./static'))
+
+app.use('/sw', express.static('./www/sw'))
+app.use('/launcher', express.static('./www/launcher'))
+
+app.get('/sw.js', function(req,res){
+ res.sendFile(path.resolve(__dirname+'/../www/sw.js'));
+})
+app.get('/manifest.json', function(req,res){
+ res.sendFile(path.resolve(__dirname+'/../www/manifest.json'))
+})
+
+var uri = 'http://localhost:' + port + config.dev.assetsPublicPath
 
 devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')

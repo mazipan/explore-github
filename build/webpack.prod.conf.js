@@ -7,6 +7,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var WebpackShellPlugin = require('webpack-shell-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -80,6 +81,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
+    
+    new CopyWebpackPlugin([
+      { from: 'www', context: path.join(__dirname, '..') }
+    ]),
     
     // run post script to merge all js into one single index.js and rename app.[hash].css to index.css
     new WebpackShellPlugin({

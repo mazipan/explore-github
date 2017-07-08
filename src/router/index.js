@@ -9,6 +9,26 @@ var router = new Router({
       path: '/',
       name: 'Home',
       component: view('Home')
+    },
+    {
+      path: '/:user/profile/',
+      name: 'Profile',
+      component: view('Profile')
+    },
+    {
+      path: '/:user/repositories',
+      name: 'Repositories',
+      component: view('Repositories')
+    },
+    {
+      path: '/:user/following',
+      name: 'Following',
+      component: view('Following')
+    },
+    {
+      path: '/:user/followers',
+      name: 'Followers',
+      component: view('Followers')
     }
   ]
 })
@@ -19,7 +39,7 @@ var router = new Router({
  */
 function view (name) {
   return function (resolve) {
-    require(['../pages/' + name + '/index.vue'], resolve)
+    require(['../pages/' + name + '.vue'], resolve)
   }
 }
 
