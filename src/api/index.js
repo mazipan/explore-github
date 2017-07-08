@@ -5,19 +5,48 @@ import config from './config'
 const base_path = config.api.base_path
 
 function getDataViaApi (path, cb, errorHandler, payload) {
-  console.log('call api : ', path)
-  Vue.http.get(path, {
-    params: payload,
-    headers: {
-      'Accept': 'application/vnd.github.v3+json'
-    }
-  }).then((res) => {
-    cb(res)
-  }, (error) => {
-    if (typeof errorHandler === 'function') {
-      errorHandler(error)
-    }
-  })
+
+  let sessionRes = checkDataFromStorage(path)
+  if (sessionRes !== null) {
+    console.log('Read from session data : ', path)
+    cb(sessionRes)
+  } else {
+    Vue.http.get(path, {
+      params: payload,
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    }).then((res) => {
+      console.log('You just call api : ', path)
+      saveDataToStorage(path, res)
+      cb(res)
+    }, (error) => {
+      console.log('Sorry, api error : ', path)
+      if (typeof errorHandler === 'function') {
+        errorHandler(error)
+      }
+    })
+  }  
+}
+
+function saveDataToStorage (path, data) {
+  try {
+    let dataString = JSON.stringify(data)
+    sessionStorage.setItem(path, dataString)    
+  } catch (error) {
+    console.log('failed save to storage')
+  }
+}
+
+function checkDataFromStorage (path) {
+  let res = null
+  try {
+    let sessionDataString = sessionStorage.getItem(path)
+    res = JSON.parse(sessionDataString)
+  } catch (error) {
+    console.log('failed read to storage')
+  }
+  return res
 }
 
 export default {
