@@ -55,7 +55,7 @@ export default {
     getDataViaApi(path, cb, errorHandler, null)
   },
   getUserRepositories: (cb, errorHandler, user) => {
-    let path = `${base_path}users/${user}/repos`
+    let path = `${base_path}users/${user}/repos?per_page=100`
     getDataViaApi(path, cb, errorHandler, null)
   }
 }
