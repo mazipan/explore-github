@@ -1,6 +1,6 @@
 {
-  "name": "Vue Mobile Web Template",
-  "short_name": "Vue-Mobile",
+  "name": "Vue Github Explorer",
+  "short_name": "GH-Explorer",
   "icons": [
     {
       "src": "launcher\/android-icon-36x36.png",
@@ -45,7 +45,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/explore-github/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#0096d9",
