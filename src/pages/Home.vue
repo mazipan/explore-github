@@ -63,9 +63,10 @@ export default {
   mounted () {
     if (this.userData === null) {
       this.$store.dispatch('getUserData', this.bookmarkUser)
-    }
-    if (this.userRepositories === null) {
       this.$store.dispatch('getUserRepositories', this.bookmarkUser)
+    } else if (this.userData.login !== this.bookmarkUser) {
+      this.$store.dispatch('getUserData', this.userShowing)
+      this.$store.dispatch('getUserRepositories', this.userShowing)
     }
   }
 }

@@ -57,6 +57,13 @@
     },
     origin: /\.cloudflare\.com$/
   });  
+  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
+    cache: {
+      name: 'githubusercontent',
+      maxEntries: 200,
+    },
+    origin: /\.githubusercontent\.com$/
+  });
 
   // Boilerplate to ensure our service worker takes control of the page as soon as possible.
   global.addEventListener('install', event => event.waitUntil(global.skipWaiting()));

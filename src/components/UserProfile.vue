@@ -52,7 +52,7 @@ export default {
     &__img{
       height: 100px;
       border-radius: 50%;
-      border: 5px solid #000;
+      border: 5px solid #0096d9;
     }
 
     &__identity, &__bio {

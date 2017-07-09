@@ -21,7 +21,7 @@ function getDataViaApi (path, cb, errorHandler, payload) {
       saveDataToStorage(path, res)
       cb(res)
     }, (error) => {
-      console.log('Sorry, api error : ', path)
+      console.log('Sorry, api ' + path + ' error : ', error)
       if (typeof errorHandler === 'function') {
         errorHandler(error)
       }
@@ -34,7 +34,7 @@ function saveDataToStorage (path, data) {
     let dataString = JSON.stringify(data)
     sessionStorage.setItem(path, dataString)    
   } catch (error) {
-    console.log('failed save to storage')
+    console.log('failed save to storage', error)
   }
 }
 
@@ -44,7 +44,7 @@ function checkDataFromStorage (path) {
     let sessionDataString = sessionStorage.getItem(path)
     res = JSON.parse(sessionDataString)
   } catch (error) {
-    console.log('failed read to storage')
+    console.log('failed read to storage', error)
   }
   return res
 }
@@ -56,6 +56,10 @@ export default {
   },
   getUserRepositories: (cb, errorHandler, user) => {
     let path = `${base_path}users/${user}/repos?per_page=100`
+    getDataViaApi(path, cb, errorHandler, null)
+  },
+  searchUser: (cb, errorHandler, keyword) => {
+    let path = `${base_path}search/users?q=${keyword}`
     getDataViaApi(path, cb, errorHandler, null)
   }
 }

@@ -43,9 +43,9 @@ if (process.env.NODE_ENV !== 'production') {
 
       if (validParams && route.params) {
         for (let i in route.params) {
-          if (typeof urlQuery[route.params[i]] === 'undefined') {
+          if (typeof urlQuery[i] === 'undefined') {
             validParams = false
-            errors[route.params[i]] = ['BLANK', 'Required']
+            errors[i] = ['BLANK', 'Required']
           }
         }
       }

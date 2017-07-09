@@ -15,9 +15,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 require("octicons/build/octicons.min.css")
+/* -- CEK SVG 
 var octicons = require("octicons")
 let svg = octicons.broadcast.toSVG({ "width": 100 })
 console.log(svg)
+*/
 
 /* eslint-disable no-new */
 new Vue({

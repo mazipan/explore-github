@@ -29,6 +29,11 @@ var router = new Router({
       path: '/:user/followers',
       name: 'Followers',
       component: view('Followers')
+    },
+    {
+      path: '/search/:keyword',
+      name: 'SearchResult',
+      component: view('SearchResult')
     }
   ]
 })

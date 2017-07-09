@@ -4,7 +4,8 @@ export const state = {
   isShowSidebar: false,
   bookmarkUser: 'mazipan',
   userData: null,
-  userRepositories: null
+  userRepositories: null,
+  userSearchResult: null
 }
 
 export const getters = {
@@ -25,6 +26,9 @@ export const getters = {
   },
   userRepositories: (state) => {
     return state.userRepositories
+  },
+  userSearchResult: (state) => {
+    return state.userSearchResult
   }
 }
 
@@ -41,6 +45,9 @@ export const mutations = {
   },
   setUserRepositories (state, value) {
     state.userRepositories = value
+  },
+  setUserSearchResult (state, value) {
+    state.userSearchResult = value
   }
 }
 
@@ -70,6 +77,11 @@ export const actions = {
       }
       commit('setUserRepositories', array)
     }, null, data)
+  },
+  searchUser ({commit}, keyword) {
+    api.searchUser((response) => {
+      commit('setUserSearchResult', response.body)
+    }, null, keyword)
   }
 }
 

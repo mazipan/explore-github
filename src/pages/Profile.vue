@@ -54,8 +54,9 @@ export default {
   mounted () {
     if (this.userData === null) {
       this.$store.dispatch('getUserData', this.userShowing)
-    }
-    if (this.userRepositories === null) {
+      this.$store.dispatch('getUserRepositories', this.userShowing)
+    } else if (this.userData.login !== this.userShowing) {
+      this.$store.dispatch('getUserData', this.userShowing)
       this.$store.dispatch('getUserRepositories', this.userShowing)
     }
   }
