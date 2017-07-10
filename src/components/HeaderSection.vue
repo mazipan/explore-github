@@ -122,7 +122,7 @@ export default {
     left: 0;
     width: 100%;
     z-index: 10;
-    margin: 0;
+    margin: 10px 2px 2px 2px;
     background: #0096d9;
     text-align: center;
     color: #fff;
@@ -132,7 +132,7 @@ export default {
     align-items: center;
 
     &__text{
-      width: 90%;
+      width: 100%;
       padding: 12px;
       outline: none;
       border: 0;
