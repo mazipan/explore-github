@@ -17,6 +17,14 @@
 + Vue-Resources
 + Webpack
 
+### Code Structure
++ All `webpack` configuration for build production and development is in folder [build](https://github.com/mazipan/explore-github/tree/master/build)
++ Folder [config](https://github.com/mazipan/explore-github/tree/master/config) is project configuration that used by `webpack` build
++ All `Vue` code is in [src](https://github.com/mazipan/explore-github/tree/master/src) folder
++ Folder [static](https://github.com/mazipan/explore-github/tree/master/static) is for external js, css and public image
++ Folder [test](https://github.com/mazipan/explore-github/tree/master/test/unit) is used for unit test all `Vue Component`
++ Folder [www](https://github.com/mazipan/explore-github/tree/master/www) is setup for `pwa` need, like `manifest.json`, `sw.js`, etc
+
 **Hope will usefull for you all.**
 
 Contact Me :
