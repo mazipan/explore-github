@@ -64,6 +64,14 @@
     },
     origin: /\.githubusercontent\.com$/
   });
+  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
+    cache: {
+      name: 'githubapi',
+      maxEntries: 200,
+      maxAgeSeconds: 60 * 60 * 48,
+    },
+    origin: /\.github\.com$/
+  });
 
   // Boilerplate to ensure our service worker takes control of the page as soon as possible.
   global.addEventListener('install', event => event.waitUntil(global.skipWaiting()));
