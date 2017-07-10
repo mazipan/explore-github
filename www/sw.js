@@ -13,33 +13,33 @@
   //   'www/js/app.js'
   // ]);
 
-  toolbox.router.get("/explore-github/sw/*", global.toolbox.cacheFirst, {
+  toolbox.router.get('/explore-github/sw/*', global.toolbox.cacheFirst, {
       cache: {
           name: 'serviceWorkerCacheVue' + versionCache,
           maxEntries: 200
       }
   });
-  toolbox.router.get("/explore-github/(*).css", global.toolbox.cacheFirst, {
+  toolbox.router.get('/explore-github/**/*.{css}', global.toolbox.cacheFirst, {
     cache: {
       name: 'staticCssCacheVue' + versionCache,
       maxEntries: 200
     }
   });
-  toolbox.router.get("explore-github/(*).js", global.toolbox.cacheFirst, {
+  toolbox.router.get('/explore-github/**/*.{js}', global.toolbox.cacheFirst, {
     cache: {
       name: 'staticJsCacheVue' + versionCache,
       maxEntries: 200
     }
-  });
-  toolbox.router.get("/explore-github/static/(.*)", toolbox.cacheFirst, {
-    cache: {
-      name: 'staticOtherVue' + versionCache,
-      maxEntries: 200
-    }
-  });
+  });  
   toolbox.router.get(/\.(?:png|gif|jpg)$/, global.toolbox.cacheFirst, {
     cache: {
       name: 'imageCacheVue' + versionCache,
+      maxEntries: 200
+    }
+  });
+  toolbox.router.get('/explore-github/(.*)', toolbox.cacheFirst, {
+    cache: {
+      name: 'staticOtherVue' + versionCache,
       maxEntries: 200
     }
   });
