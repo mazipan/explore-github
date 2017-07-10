@@ -3,11 +3,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import VueLazyload from 'vue-lazyload'
+
 import router from 'src/router'
 import store from 'src/store'
 import App from 'App'
 
 Vue.use(VueResource)
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: '/explore-github/static/images/brand.png',
+  loading: '/explore-github/static/images/brand.png',
+  attempt: 1
+})
 
 if (process.env.NODE_ENV !== 'production') {
   require('vue-mock')

@@ -18,7 +18,6 @@
       v-if="showingRepoData">
     </repository-list>
 
-    
     <user-profile-action 
       :userShowing="bookmarkUser"
       :repos="userData.public_repos" 
@@ -60,13 +59,18 @@ export default {
     },
     ...mapGetters(['bookmarkUser', 'isBookmarkUser', 'userData', 'userRepositories'])    
   },
-  mounted () {
-    if (this.userData === null) {
-      this.$store.dispatch('getUserData', this.bookmarkUser)
-      this.$store.dispatch('getUserRepositories', this.bookmarkUser)
-    } else if (this.userData.login !== this.bookmarkUser) {
-      this.$store.dispatch('getUserData', this.userShowing)
-      this.$store.dispatch('getUserRepositories', this.userShowing)
+  activated () {
+    let self = this
+    if (self.userData === null) {
+      self.$store.dispatch('getUserData', self.bookmarkUser)
+      setTimeout(() => {
+        self.$store.dispatch('getUserRepositories', self.bookmarkUser)
+      }, 1000)
+    } else if (self.userData.login !== self.bookmarkUser) {
+      self.$store.dispatch('getUserData', self.userShowing)
+      setTimeout(() => {
+        self.$store.dispatch('getUserRepositories', self.userShowing)
+      }, 1000)
     }
   }
 }

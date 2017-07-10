@@ -12,7 +12,7 @@
     <ul class="results">
       <li v-for="res in listUser" class="result">
         <router-link :to="'/' + res.login + '/profile/'">
-          <img class="result__img" :src="res.avatar_url" />   
+          <img class="result__img" v-lazy="res.avatar_url" />   
           <span class="result__name">{{ res.login }}</span>  
           <i class="fa fa-chevron-right icon"></i>
         </router-link>

@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <img :src="profileImg" class="profile__img"/>
+    <img v-lazy="profileImg" class="profile__img"/>
 
     <div class="is-bookmarked" 
       :class="{'is-bookmarked--yes' : isBookmarked}"

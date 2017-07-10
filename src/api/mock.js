@@ -4595,9 +4595,6 @@ let routes = [{
 }, {
   method: 'GET',
   url: '//api.github.com/users/mazipan/followers',
-  params: {
-    per_page: '100'
-  },
   response: [{
     "login": "brunocasanova",
     "id": 4107768,
@@ -5142,9 +5139,6 @@ let routes = [{
 }, {
   method: 'GET',
   url: '//api.github.com/users/mazipan/following',
-  params: {
-    per_page: '100'
-  },
   response: [{
     "login": "brunocasanova",
     "id": 4107768,

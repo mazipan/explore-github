@@ -32,7 +32,7 @@ export default {
     },
     ...mapGetters(['userRepositories'])   
   },
-  mounted () {
+  activated () {
     if (this.userRepositories === null) {
       this.$store.dispatch('getUserRepositories', this.userShowing)
     }

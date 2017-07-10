@@ -51,13 +51,19 @@ export default {
     },
     ...mapGetters(['isBookmarkUser', 'userData', 'userRepositories'])   
   },
-  mounted () {
-    if (this.userData === null) {
-      this.$store.dispatch('getUserData', this.userShowing)
-      this.$store.dispatch('getUserRepositories', this.userShowing)
-    } else if (this.userData.login !== this.userShowing) {
-      this.$store.dispatch('getUserData', this.userShowing)
-      this.$store.dispatch('getUserRepositories', this.userShowing)
+  activated () {
+    let self = this
+    let callApi = () => {      
+      self.$store.dispatch('getUserData', self.userShowing)
+      setTimeout(() => {
+        self.$store.dispatch('getUserRepositories', self.userShowing)
+      }, 1000)
+    }
+    
+    if (self.userData === null) {
+      callApi()
+    } else if (self.userData.login !== self.userShowing) {
+      callApi()
     }
   }
 }

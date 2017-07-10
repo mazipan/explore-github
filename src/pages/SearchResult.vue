@@ -38,7 +38,7 @@ export default {
     },
     ...mapGetters(['userSearchResult'])    
   },
-  mounted () {
+  activated () {
     this.$store.dispatch('searchUser', this.keyword)
   }
 }

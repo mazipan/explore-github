@@ -9,7 +9,7 @@
       <div class="header__content">
           <router-link to="/">
               <img class="header__brand" 
-                    src="/explore-github/static/images/github-explorer-white.png" 
+                    v-lazy="'/explore-github/static/images/github-explorer-white.png'" 
                     alt="Brand">
           </router-link>
       </div>

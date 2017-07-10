@@ -59,11 +59,11 @@ export default {
     getDataViaApi(path, cb, errorHandler, null)
   },
   getUserFollowers: (cb, errorHandler, user) => {
-    let path = `${base_path}users/${user}/followers?per_page=100`
+    let path = `${base_path}users/${user}/followers`
     getDataViaApi(path, cb, errorHandler, null)
   },
   getUserFollowing: (cb, errorHandler, user) => {
-    let path = `${base_path}users/${user}/following?per_page=100`
+    let path = `${base_path}users/${user}/following`
     getDataViaApi(path, cb, errorHandler, null)
   },
   searchUser: (cb, errorHandler, keyword) => {

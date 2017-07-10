@@ -29,7 +29,7 @@ export default {
     },
     ...mapGetters(['userFollowing'])  
   },
-  mounted () {
+  activated () {
     this.$store.dispatch('getUserFollowing', this.userShowing)
   }
 }
