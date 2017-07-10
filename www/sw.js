@@ -4,7 +4,7 @@
   var versionCache = '0.1'
 
   // Load the sw-tookbox library.
-  importScripts('/sw/sw-toolbox.js');
+  importScripts('/explore-github/sw/sw-toolbox.js');
 
   // Turn on debug logging, visible in the Developer Tools' console.
   global.toolbox.options.debug = true;
