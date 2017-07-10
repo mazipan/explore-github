@@ -32,7 +32,7 @@ var router = new Router({
       component: view('Followers')
     },
     {
-      path: '/search/:keyword',
+      path: '/search',
       name: 'SearchResult',
       component: view('SearchResult')
     },

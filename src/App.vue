@@ -8,7 +8,7 @@
     <header-section @toggleSidebar="toggleSidebar"></header-section>
         
     <div class="main">      
-      <transition name="fade" mode="out-in">
+      <transition name="slide-fade" mode="out-in">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
@@ -45,11 +45,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .2s ease;
+  .slide-fade-enter-active {
+    transition: all .3s ease;
   }
-  .fade-enter, .fade-leave-active {
-    opacity: 0
+  .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for <2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
   }
   .sidebar-cover{
     background-color: rgba(0,0,0,0.5);

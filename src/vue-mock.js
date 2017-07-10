@@ -16,6 +16,8 @@ if (process.env.NODE_ENV !== 'production') {
     let route = routes.find((item) => {
       return (request.method === item.method && urlPath === item.url)
     })
+    console.log(urlPath)
+    console.log(urlQuery)
     if (!route) {
       // we're just going to return a 404 here, since we don't want our test suite making a real HTTP request
       next(request.respondWith({status: 404, statusText: 'Oh no! Not found!'}))

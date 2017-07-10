@@ -2,7 +2,7 @@
   <aside class="sidebar">    
     <div class="sidebar__content">  
       <div class="sidebar__head">      
-        <img src="/explore-github/static/images/logo.png">
+        <img src="/explore-github/static/images/github-explorer-white.png">
       </div>    
       <ul class="sidebar__menu">    
 

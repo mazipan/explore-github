@@ -1,6 +1,10 @@
 <template>
   <div class="grid__row">
 
+    <div class="title">
+      Repository list for user <b><i>{{userShowing}}</i></b>
+    </div>
+
     <repository-list 
       :repositories="userRepositories">
     </repository-list>
@@ -20,7 +24,7 @@ import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
-  name: 'repositories',
+  name: 'RepositoriesPage',
   components: {UserProfileAction, RepositoryList},
   computed: {
     userShowing: function () {
@@ -38,5 +42,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.title{
+  margin: 10px;
+  font-size: 24px;
+}
 </style>

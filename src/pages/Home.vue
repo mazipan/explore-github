@@ -38,7 +38,7 @@ import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
-  name: 'home',
+  name: 'HomePage',
   components: {UserProfile, UserProfileAction, RepositoryList},
   data () {
     return {

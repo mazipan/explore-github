@@ -58,6 +58,14 @@ export default {
     let path = `${base_path}users/${user}/repos?per_page=100`
     getDataViaApi(path, cb, errorHandler, null)
   },
+  getUserFollowers: (cb, errorHandler, user) => {
+    let path = `${base_path}users/${user}/followers?per_page=100`
+    getDataViaApi(path, cb, errorHandler, null)
+  },
+  getUserFollowing: (cb, errorHandler, user) => {
+    let path = `${base_path}users/${user}/following?per_page=100`
+    getDataViaApi(path, cb, errorHandler, null)
+  },
   searchUser: (cb, errorHandler, keyword) => {
     let path = `${base_path}search/users?q=${keyword}`
     getDataViaApi(path, cb, errorHandler, null)

@@ -9,7 +9,7 @@
       <div class="header__content">
           <router-link to="/">
               <img class="header__brand" 
-                    src="/explore-github/static/images/logo.png" 
+                    src="/explore-github/static/images/github-explorer-white.png" 
                     alt="Brand">
           </router-link>
       </div>
@@ -25,6 +25,7 @@
         name="keyword" 
         placeholder="Type keyword to search"
         class="search__text"
+        @keyup.enter="doSearch"
         v-model="keyword"/>
       <button 
         class="search__btn"
@@ -55,7 +56,8 @@ export default {
     doSearch: function () {
       if (this.keyword !== '') {
         this.showSearchBlock = false
-        this.$router.push('/search/' + this.keyword)
+        this.$router.push('/search/?q=' + this.keyword)
+        this.keyword = ''
       }
     }
   }

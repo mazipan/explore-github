@@ -31,7 +31,7 @@ import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
-  name: 'profile',
+  name: 'ProfilePage',
   components: {UserProfile, UserProfileAction, RepositoryList},
   computed: {
     showingUserData: function () {

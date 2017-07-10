@@ -5,6 +5,8 @@ export const state = {
   bookmarkUser: 'mazipan',
   userData: null,
   userRepositories: null,
+  userFollowers: null,
+  userFollowing: null,
   userSearchResult: null
 }
 
@@ -27,6 +29,12 @@ export const getters = {
   userRepositories: (state) => {
     return state.userRepositories
   },
+  userFollowers: (state) => {
+    return state.userFollowers
+  },
+  userFollowing: (state) => {
+    return state.userFollowing
+  },
   userSearchResult: (state) => {
     return state.userSearchResult
   }
@@ -45,6 +53,12 @@ export const mutations = {
   },
   setUserRepositories (state, value) {
     state.userRepositories = value
+  },
+  setUserFollowers (state, value) {
+    state.userFollowers = value
+  },
+  setUserFollowing (state, value) {
+    state.userFollowing = value
   },
   setUserSearchResult (state, value) {
     state.userSearchResult = value
@@ -76,6 +90,16 @@ export const actions = {
         })
       }
       commit('setUserRepositories', array)
+    }, null, data)
+  },
+  getUserFollowers ({commit}, data) {
+    api.getUserFollowers((response) => {
+      commit('setUserFollowers', response.body)
+    }, null, data)
+  },
+  getUserFollowing ({commit}, data) {
+    api.getUserFollowing((response) => {
+      commit('setUserFollowing', response.body)
     }, null, data)
   },
   searchUser ({commit}, keyword) {

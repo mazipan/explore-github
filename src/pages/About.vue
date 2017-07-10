@@ -36,7 +36,7 @@
 <script>
 
 export default {
-  name: 'About',
+  name: 'AboutPage',
   computed: {}
 }
 
