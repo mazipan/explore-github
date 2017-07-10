@@ -25,6 +25,9 @@
 + Folder [test](https://github.com/mazipan/explore-github/tree/master/test/unit) is used for unit test all `Vue Component`
 + Folder [www](https://github.com/mazipan/explore-github/tree/master/www) is setup for `pwa` need, like `manifest.json`, `sw.js`, etc
 
+### PWA Support
+![Lighthouse Result](https://raw.githubusercontent.com/mazipan/explore-github/master/lighthouse-result-2017-07-01.PNG)
+
 **Hope will usefull for you all.**
 
 Contact Me :
