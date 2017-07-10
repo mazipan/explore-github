@@ -122,10 +122,9 @@ export default {
     left: 0;
     width: 100%;
     z-index: 10;
-    margin: 10px 2px 2px 2px;
-    background: #0096d9;
     text-align: center;
     color: #fff;
+    border-bottom: .5em solid #0096d9;
     
     display: flex;
     justify-content: space-between;

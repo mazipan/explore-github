@@ -12,6 +12,12 @@
           </router-link>
         </li>
 
+        <li class="sidebar__item">
+          <router-link to="/about" @click.native="navigateTo" class="sidebar__link">
+            <i class="fa fa-question-circle"></i> About
+          </router-link>
+        </li>
+
       </ul>
     </div>
   </aside>

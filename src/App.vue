@@ -7,11 +7,13 @@
 
     <header-section @toggleSidebar="toggleSidebar"></header-section>
         
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <div class="main">      
+      <transition name="fade" mode="out-in">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
+    </div>
 
 
   </div>
@@ -55,5 +57,8 @@ export default {
     top:0px; right: 0px; bottom: 0px; left: 0px;
     height: 100%;
     z-index: 19;
+  }
+  .main{
+    
   }
 </style>
