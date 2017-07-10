@@ -1,4 +1,4 @@
-# explore-github
+# Vue-Github-Explorer
 
 [![License](https://img.shields.io/github/license/mazipan/explore-github.svg?maxAge=3600)](https://github.com/mazipan/explore-github) 
 [![Github Issue](https://img.shields.io/github/issues/mazipan/explore-github.svg?maxAge=3600)](https://github.com/mazipan/explore-github/issues) 
@@ -8,11 +8,14 @@
 [![Travis](https://img.shields.io/travis/mazipan/explore-github.svg)](https://travis-ci.org/mazipan/explore-github)
 [![codecov](https://codecov.io/gh/mazipan/explore-github/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/explore-github)
 
-### Using Vue.js Framework
-![Vue](https://raw.githubusercontent.com/mazipan/explore-github/master/static/images/logo.png)
+![Vue-Github-Explorer](https://raw.githubusercontent.com/mazipan/explore-github/master/static/images/github-explorer-blue.png)
 
-### Github API v3
-[https://developer.github.com/v3/](https://developer.github.com/v3/)
+### Technology Used
++ API by Github v3 [https://developer.github.com/v3/](https://developer.github.com/v3/)
++ Vue.js
++ Vue-Router
++ Vue-Resources
++ Webpack
 
 **Hope will usefull for you all.**
 
