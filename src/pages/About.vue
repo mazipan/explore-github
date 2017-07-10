@@ -1,13 +1,20 @@
 <template>
-  <div class="grid__row">
+  <div class="grid__row about">
     <img src="/explore-github/static/images/github-explorer-blue.png" />
     <h1>Vue Github Explorer</h1>
+    <h5>See Source Code : 
+      <a href="https://github.com/mazipan/explore-github" target="_blank">
+        https://github.com/mazipan/explore-github
+      </a>
+    </h5>
     <h5>API by Github API v3 : 
-        <a href="https://developer.github.com/v3/" target="_blank">
-          https://developer.github.com/v3/
-        </a>
-      </h5>
+      <a href="https://developer.github.com/v3/" target="_blank">
+        https://developer.github.com/v3/
+      </a>
+    </h5>
+    <br>
     <p>
+      <h5>Crafted with <i class="fa fa-heart"></i> by : </h5>
       <a href="mailto:mazipanneh@gmail.com">
         <img src="https://camo.githubusercontent.com/bad35f239835c8c4799884f38312b36d023e8d93/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d617a6970616e6e65682d456d61696c2d79656c6c6f772e7376673f6d61784167653d33363030" alt="Email" data-canonical-src="https://img.shields.io/badge/mazipanneh-Email-yellow.svg?maxAge=3600" style="max-width:100%;">
       </a>
@@ -36,5 +43,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.about{
+  text-align: center;
 
+  a{
+    color: #0096d9;
+    text-decoration: none;
+  }
+
+  .fa-heart{
+    color: red;
+  }
+}
 </style>
