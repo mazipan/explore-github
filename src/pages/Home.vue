@@ -18,14 +18,6 @@
       v-if="showingRepoData">
     </repository-list>
 
-    <user-profile-action 
-      :userShowing="bookmarkUser"
-      :repos="userData.public_repos" 
-      :followers="userData.followers" 
-      :following="userData.following" 
-      v-if="showingUserData">
-    </user-profile-action>
-
   </div>
 </template>
 
@@ -33,12 +25,11 @@
 
 import { mapGetters } from 'vuex'
 import UserProfile from 'components/UserProfile'
-import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
   name: 'HomePage',
-  components: {UserProfile, UserProfileAction, RepositoryList},
+  components: {UserProfile, RepositoryList},
   data () {
     return {
       selectedUser: 'mazipan'
@@ -62,15 +53,19 @@ export default {
   activated () {
     let self = this
     if (self.userData === null) {
+      console.log('user data null, bookmark user = ', self.bookmarkUser)
       self.$store.dispatch('getUserData', self.bookmarkUser)
       setTimeout(() => {
         self.$store.dispatch('getUserRepositories', self.bookmarkUser)
       }, 1000)
     } else if (self.userData.login !== self.bookmarkUser) {
-      self.$store.dispatch('getUserData', self.userShowing)
+      console.log('user data login ' + self.userData.login + ' !== bookmark user ', self.bookmarkUser)
+      self.$store.dispatch('getUserData', self.bookmarkUser)
       setTimeout(() => {
-        self.$store.dispatch('getUserRepositories', self.userShowing)
+        self.$store.dispatch('getUserRepositories', self.bookmarkUser)
       }, 1000)
+    } else {
+      console.log('else ', self.bookmarkUser)
     }
   }
 }

@@ -68,7 +68,7 @@
     cache: {
       name: 'githubapi',
       maxEntries: 200,
-      maxAgeSeconds: 60 * 60 * 48,
+      maxAgeSeconds: 518400,
     },
     origin: /\.github\.com$/
   });

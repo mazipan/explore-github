@@ -7,8 +7,6 @@
       list-title="Search result for keyword">
     </user-list>
     
-    <user-profile-action></user-profile-action>
-
   </div>
 </template>
 
@@ -16,11 +14,10 @@
 
 import { mapGetters } from 'vuex'
 import UserList from 'components/UserList'
-import UserProfileAction from 'components/UserProfileAction'
 
 export default {
   name: 'searchResult',
-  components: {UserList, UserProfileAction},
+  components: {UserList},
   data () {
     return {
     }

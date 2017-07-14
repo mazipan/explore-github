@@ -8,11 +8,6 @@
     <repository-list 
       :repositories="userRepositories">
     </repository-list>
-
-    <user-profile-action 
-      :hideHomeIcon="true"
-      :userShowing="userShowing">
-    </user-profile-action>
     
   </div>
 </template>
@@ -20,12 +15,11 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
   name: 'RepositoriesPage',
-  components: {UserProfileAction, RepositoryList},
+  components: {RepositoryList},
   computed: {
     userShowing: function () {
       return this.$route.params.user

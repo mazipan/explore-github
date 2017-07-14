@@ -13,17 +13,18 @@ Vue.use(VueResource)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '/explore-github/static/images/brand.png',
-  loading: '/explore-github/static/images/brand.png',
+  loading: '/explore-github/static/images/loading.gif',
   attempt: 1
 })
 
 if (process.env.NODE_ENV !== 'production') {
-  require('vue-mock')
+  // require('vue-mock')
   Vue.config.devtools = true
 }
 
 require("octicons/build/octicons.min.css")
-/* -- CEK SVG 
+/*
+-- CEK SVG
 var octicons = require("octicons")
 let svg = octicons.broadcast.toSVG({ "width": 100 })
 console.log(svg)

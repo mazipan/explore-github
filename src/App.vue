@@ -6,14 +6,20 @@
     <sidebar v-bind:class="{'sidebar--open': isShowSidebar}"></sidebar>
 
     <header-section @toggleSidebar="toggleSidebar"></header-section>
-        
+    
+    <div class="loading" v-show="isLoading">
+      <img src="/explore-github/static/images/loading.gif">
+    </div>
+
     <div class="main">      
-      <transition name="slide-fade" mode="out-in">
+      <transition name="fade" mode="out-in">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </transition>
     </div>
+
+    <user-profile-action></user-profile-action>
 
 
   </div>
@@ -23,12 +29,13 @@
 import { mapGetters } from 'vuex'
 import Sidebar from 'components/Sidebar'
 import HeaderSection from 'components/HeaderSection'
+import UserProfileAction from 'components/UserProfileAction'
 
 export default {
   name: 'app',
-  components: {Sidebar, HeaderSection},
+  components: {Sidebar, HeaderSection, UserProfileAction},
   computed: {
-    ...mapGetters(['isShowSidebar'])
+    ...mapGetters(['isShowSidebar', 'userData', 'isLoading'])
   },
   created () {
     this.$store.dispatch('readBookmarkUser')
@@ -45,16 +52,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .slide-fade-enter-active {
-    transition: all .3s ease;
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
   }
-  .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active for <2.1.8 */ {
-    transform: translateX(10px);
-    opacity: 0;
+  .fade-enter, .fade-leave-to {
+    opacity: 0
   }
   .sidebar-cover{
     background-color: rgba(0,0,0,0.5);
@@ -65,5 +67,9 @@ export default {
   }
   .main{
     
+  }
+  .loading{
+    text-align: center;
+    padding-top: 50px;
   }
 </style>

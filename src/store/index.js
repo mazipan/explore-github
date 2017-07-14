@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { state, mutations, actions, getters } from './mutations'
+import { state, mutations, actions, getters } from './store'
 
 Vue.use(Vuex)
 

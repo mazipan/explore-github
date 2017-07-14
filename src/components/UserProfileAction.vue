@@ -1,38 +1,43 @@
 <template>
   <div class="action">
     <div class="action__tab">        
-      <router-link to="/" class="action__link" v-if="!hideHomeIcon">
+      <router-link to="/" class="action__link" v-if="!userActionTab.hideHomeIcon">
         <i class="fa fa-home action__icon"></i>          
       </router-link>    
-      <router-link :to="'/' + userShowing + '/profile/'"  v-if="hideHomeIcon" class="action__link">
+      <router-link :to="'/' + userActionTab.login + '/profile/'"  v-if="userActionTab.hideHomeIcon" class="action__link">
         <i class="fa fa-user action__icon"></i>          
       </router-link>
     </div>
-    <div class="action__tab">        
-      <router-link :to="'/' + userShowing + '/repositories/'" class="action__link">
+    <div class="action__tab"  v-if="!userActionTab.isOrg">        
+      <router-link :to="'/' + userActionTab.login + '/repositories/'" class="action__link">
         <i class="fa fa-cubes action__icon"></i>   
-        <span class="action__badge" v-if="repos">{{ repos }}</span>            
+        <span class="action__badge" v-if="userActionTab.repos">{{ userActionTab.repos }}</span>            
       </router-link>
     </div>
-    <div class="action__tab">
-      <router-link :to="'/' + userShowing + '/followers/'" class="action__link">
+    <div class="action__tab"  v-if="!userActionTab.isOrg">
+      <router-link :to="'/' + userActionTab.login + '/followers/'" class="action__link">
         <i class="fa fa-paw action__icon"></i>   
-        <span class="action__badge" v-if="followers">{{ followers }}</span>  
+        <span class="action__badge" v-if="userActionTab.followers">{{ userActionTab.followers }}</span>  
       </router-link>
     </div>
-    <div class="action__tab">
-      <router-link :to="'/' + userShowing + '/following/'" class="action__link">
+    <div class="action__tab"  v-if="!userActionTab.isOrg">
+      <router-link :to="'/' + userActionTab.login + '/following/'" class="action__link">
         <i class="fa fa-users action__icon"></i>   
-        <span class="action__badge" v-if="following">{{ following }}</span>  
+        <span class="action__badge" v-if="userActionTab.following">{{ userActionTab.following }}</span>  
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'userprofileaction',
-  props: ['userShowing', 'repos', 'followers', 'following', 'hideHomeIcon']
+  computed: {
+    ...mapGetters(['userActionTab'])
+  },
 }
 </script>
 

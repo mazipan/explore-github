@@ -7,7 +7,16 @@ export const state = {
   userRepositories: null,
   userFollowers: null,
   userFollowing: null,
-  userSearchResult: null
+  userSearchResult: null,
+  userActionTab: {
+    login: 'mazipan',
+    repos: '',
+    follower: '',
+    following: '',
+    isOrg: false,
+    hideHome: false
+  },
+  loading: false
 }
 
 export const getters = {
@@ -37,6 +46,12 @@ export const getters = {
   },
   userSearchResult: (state) => {
     return state.userSearchResult
+  },
+  userActionTab: (state) => {
+    return state.userActionTab
+  },
+  isLoading: (state) => {
+    return state.loading
   }
 }
 
@@ -62,6 +77,12 @@ export const mutations = {
   },
   setUserSearchResult (state, value) {
     state.userSearchResult = value
+  },
+  setUserActionTab (state, value) {
+    state.userActionTab = value
+  },
+  setLoading (state, value) {
+    state.loading = value
   }
 }
 
@@ -75,12 +96,27 @@ export const actions = {
     }    
   },
   getUserData ({commit}, username) {
+    commit('setLoading', true)
     api.getUserData((response) => {
+      commit('setLoading', false)    
       commit('setUserData', response.body)
-    }, null, username)
+      let tabAct = {
+        login: response.body.login,
+        repos: response.body.public_repos,
+        follower: response.body.followers,
+        following: response.body.following,
+        isOrg: response.body.type !== 'User',
+        hideHome: state.bookmarkUser === response.body.login
+      }
+      commit('setUserActionTab', tabAct)
+    }, () => {
+      commit('setLoading', false)
+    }, username)
   },
   getUserRepositories ({commit}, data) {
+    commit('setLoading', true)
     api.getUserRepositories((response) => {
+      commit('setLoading', false)
       let array = response.body
       if (array) {
         array = array.sort(function (a, b) {
@@ -90,22 +126,36 @@ export const actions = {
         })
       }
       commit('setUserRepositories', array)
-    }, null, data)
+    }, () => {
+      commit('setLoading', false)
+    }, data)
   },
   getUserFollowers ({commit}, data) {
+    commit('setLoading', true)
     api.getUserFollowers((response) => {
+      commit('setLoading', false)
       commit('setUserFollowers', response.body)
-    }, null, data)
+    }, () => {
+      commit('setLoading', false)
+    }, data)
   },
   getUserFollowing ({commit}, data) {
+    commit('setLoading', true)
     api.getUserFollowing((response) => {
+      commit('setLoading', false)
       commit('setUserFollowing', response.body)
-    }, null, data)
+    }, () => {
+      commit('setLoading', false)
+    }, data)
   },
   searchUser ({commit}, keyword) {
+    commit('setLoading', true)
     api.searchUser((response) => {
+      commit('setLoading', false)
       commit('setUserSearchResult', response.body)
-    }, null, keyword)
+    }, () => {
+      commit('setLoading', false)
+    }, keyword)
   }
 }
 

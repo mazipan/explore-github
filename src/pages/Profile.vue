@@ -11,14 +11,6 @@
       :repositories="userRepositories"
       v-if="showingRepoData">
     </repository-list>
-
-    <user-profile-action 
-      :userShowing="userShowing"
-      :repos="userData.public_repos" 
-      :followers="userData.followers" 
-      :following="userData.following" 
-      v-if="showingUserData">
-    </user-profile-action>
     
   </div>
 </template>
@@ -27,12 +19,11 @@
 
 import { mapGetters } from 'vuex'
 import UserProfile from 'components/UserProfile'
-import UserProfileAction from 'components/UserProfileAction'
 import RepositoryList from 'components/RepositoryList'
 
 export default {
   name: 'ProfilePage',
-  components: {UserProfile, UserProfileAction, RepositoryList},
+  components: {UserProfile, RepositoryList},
   computed: {
     showingUserData: function () {
       let self = this

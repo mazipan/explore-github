@@ -31,7 +31,12 @@ function getDataViaApi (path, cb, errorHandler, payload) {
 
 function saveDataToStorage (path, data) {
   try {
-    let dataString = JSON.stringify(data)
+    let obj = {
+      data: data,
+      created: new Date().getTime()
+    }
+    let dataString = JSON.stringify(obj)
+    
     sessionStorage.setItem(path, dataString)    
   } catch (error) {
     console.log('failed save to storage', error)
@@ -39,10 +44,35 @@ function saveDataToStorage (path, data) {
 }
 
 function checkDataFromStorage (path) {
+
+  function needUpdated (date) {
+    let result = true
+
+    if (date) {
+      let dateUpdated = new Date(date) + (86400000*7)
+      let dateNow = new Date()
+      console.log(dateUpdated, dateNow)
+
+      if (dateNow > dateUpdated) {
+        result = false
+      }
+
+    } else result = true
+
+    return result
+  }
+  
   let res = null
   try {
     let sessionDataString = sessionStorage.getItem(path)
-    res = JSON.parse(sessionDataString)
+    if (sessionDataString) {
+      let temp = JSON.parse(sessionDataString)
+      console.log('session', temp)
+      if (temp.created) {
+        res = temp.data
+      }
+    }
+    
   } catch (error) {
     console.log('failed read to storage', error)
   }

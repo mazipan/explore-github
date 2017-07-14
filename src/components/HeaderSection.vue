@@ -2,9 +2,9 @@
   <header class="header">  
     <div class="header__sticky">
       <div class="header__nav">
-        <button class="header__hamburger" @click="toggleSidebar">
+        <a class="header__hamburger" href="javascript:void(0)" @click="toggleSidebar" title="Open Sidebar">
           <i class="fa fa-bars"></i>
-        </button>
+        </a>
       </div>
       <div class="header__content">
           <router-link to="/">
@@ -13,10 +13,10 @@
                     alt="Brand">
           </router-link>
       </div>
-      <div class="header__nav">
-        <button class="header__search" @click="toggleSearchBlock">
+      <div class="header__nav pointer">
+        <a class="header__search" href="javascript:void(0)" @click="toggleSearchBlock" title="Search User">
           <i class="fa fa-search"></i>
-        </button>
+        </a>
       </div>
     </div> 
     <div class="search" v-if="showSearchBlock">
@@ -29,7 +29,7 @@
         v-model="keyword"/>
       <button 
         class="search__btn"
-        @click="doSearch">
+        @click="doSearch"  title="Search User">
         <i class="fa fa-search"></i>
       </button>
     </div>
@@ -66,7 +66,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.pointer{
+  cursor: pointer;
+}
 .header {
   height: 60px;
 
@@ -117,6 +119,7 @@ export default {
     font-size: 30px;
   }
 }
+
 .search{
     position: fixed;
     top: 60px;
@@ -127,6 +130,7 @@ export default {
     text-align: center;
     color: #fff;
     border-bottom: .5em solid #0096d9;
+    cursor: pointer;
     
     display: flex;
     justify-content: space-between;
