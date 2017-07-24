@@ -44,6 +44,13 @@ var router = new Router({
   ]
 })
 
+router.afterEach((to, from) => {
+  if (window.ga) {
+    window.ga('set', 'page', to)
+    window.ga('send', 'pageview')
+  }
+})
+
 /**
  * Asynchronously load view (Webpack Lazy loading compatible)
  * @param  {string}   name     the filename (basename) of the view to load.

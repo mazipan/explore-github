@@ -8,19 +8,19 @@
         <i class="fa fa-user action__icon"></i>          
       </router-link>
     </div>
-    <div class="action__tab"  v-if="!userActionTab.isOrg">        
+    <div class="action__tab">        
       <router-link :to="'/' + userActionTab.login + '/repositories/'" class="action__link">
         <i class="fa fa-cubes action__icon"></i>   
         <span class="action__badge" v-if="userActionTab.repos">{{ userActionTab.repos }}</span>            
       </router-link>
     </div>
-    <div class="action__tab"  v-if="!userActionTab.isOrg">
+    <div class="action__tab" v-if="!userActionTab.isOrg">
       <router-link :to="'/' + userActionTab.login + '/followers/'" class="action__link">
         <i class="fa fa-paw action__icon"></i>   
         <span class="action__badge" v-if="userActionTab.followers">{{ userActionTab.followers }}</span>  
       </router-link>
     </div>
-    <div class="action__tab"  v-if="!userActionTab.isOrg">
+    <div class="action__tab" v-if="!userActionTab.isOrg">
       <router-link :to="'/' + userActionTab.login + '/following/'" class="action__link">
         <i class="fa fa-users action__icon"></i>   
         <span class="action__badge" v-if="userActionTab.following">{{ userActionTab.following }}</span>  

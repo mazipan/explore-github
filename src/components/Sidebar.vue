@@ -13,6 +13,38 @@
         </li>
 
         <li class="sidebar__item">
+          <router-link :to="'/' + userActionTab.login + '/profile/'"  
+             @click.native="navigateTo"
+            v-if="userActionTab.hideHomeIcon" class="sidebar__link">
+            <i class="fa fa-user"></i> Profile
+          </router-link>
+        </li>
+
+        <li class="sidebar__item">
+          <router-link :to="'/' + userActionTab.login + '/repositories/'" 
+            @click.native="navigateTo"
+            class="sidebar__link">
+            <i class="fa fa-cubes"></i>  Repositories
+          </router-link>
+        </li>
+
+        <li class="sidebar__item" v-if="!userActionTab.isOrg">
+          <router-link :to="'/' + userActionTab.login + '/followers/'" 
+            @click.native="navigateTo"
+            class="sidebar__link">
+            <i class="fa fa-paw"></i>  Followers
+          </router-link>
+        </li>
+
+        <li class="sidebar__item" v-if="!userActionTab.isOrg">
+          <router-link :to="'/' + userActionTab.login + '/following/'" 
+            @click.native="navigateTo"
+            class="sidebar__link">
+            <i class="fa fa-users"></i>  Following
+          </router-link>
+        </li>
+
+        <li class="sidebar__item">
           <router-link to="/about" @click.native="navigateTo" class="sidebar__link">
             <i class="fa fa-question-circle"></i> About
           </router-link>
@@ -30,7 +62,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Sidebar',
   computed: {
-    ...mapGetters(['isShowSidebar'])
+    ...mapGetters(['isShowSidebar', 'userActionTab'])
   },
   methods: {
     navigateTo: function (e) {
