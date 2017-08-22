@@ -28,6 +28,14 @@
 ### PWA Support
 ![Lighthouse Result](https://raw.githubusercontent.com/mazipan/explore-github/master/lighthouse-result-2017-07-01.PNG)
 
+### Development
++ Checkout Code : `git checkout https://github.com/mazipan/explore-github.git`
++ Install dependency : `npm install` or `yarn install`
++ Run in local : `npm run dev`
++ Run unit test : `npm run unit`
++ Run ES linting : `npm run lint` 
++ Build for production : `npm run dist` then checkout branch `gh-pages` and copy folder `dist` to `root` directory
+
 **Hope will usefull for you all.**
 
 Contact Me :
