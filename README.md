@@ -36,7 +36,11 @@
 + Run ES linting : `npm run lint` 
 + Build for production : `npm run dist` then checkout branch `gh-pages` and copy folder `dist` to `root` directory
 
-**Hope will usefull for you all.**
+## Contributing
+
+If you'd like to contribute, head to the [contributing guidelines](/CONTRIBUTING.md). Inside you'll find directions for opening issues, coding standards, and notes on development.
+ 
+### Hope this will be useful for you all.
 
 Contact Me :
 
