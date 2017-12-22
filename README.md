@@ -8,7 +8,7 @@
 [![Travis](https://img.shields.io/travis/mazipan/explore-github.svg)](https://travis-ci.org/mazipan/explore-github)
 [![codecov](https://codecov.io/gh/mazipan/explore-github/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/explore-github)
 
-[![Vue-Github-Explorer](https://raw.githubusercontent.com/mazipan/explore-github/master/static/images/github-explorer-blue.png)](https://mazipan.github.io/explore-github/)
+[![Vue-Github-Explorer](https://raw.githubusercontent.com/mazipan/explore-github/master/images/github-explorer-blue.png)](https://mazipan.github.io/explore-github/)
 
 ### Technology Used
 + API by Github v3 [https://developer.github.com/v3/](https://developer.github.com/v3/)
