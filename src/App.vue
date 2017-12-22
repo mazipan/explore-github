@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Sidebar from 'components/Sidebar.vue'
 import HeaderSection from 'components/HeaderSection.vue'
 import UserProfileAction from 'components/UserProfileAction.vue'
@@ -35,7 +34,15 @@ export default {
   name: 'app',
   components: {Sidebar, HeaderSection, UserProfileAction},
   computed: {
-    ...mapGetters(['isShowSidebar', 'userData', 'isLoading'])
+    isShowSidebar () {
+      return this.$store.getters.isShowSidebar
+    },
+    userData () {
+      return this.$store.getters.userData
+    },
+    isLoading () {
+      return this.$store.getters.isLoading
+    }
   },
   created () {
     this.$store.dispatch('readBookmarkUser')

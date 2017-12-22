@@ -16,8 +16,6 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
 import UserProfile from 'components/UserProfile.vue'
 import RepositoryList from 'components/RepositoryList.vue'
 
@@ -40,7 +38,15 @@ export default {
     userShowing: function () {
       return this.$route.params.user
     },
-    ...mapGetters(['isBookmarkUser', 'userData', 'userRepositories'])   
+    isBookmarkUser () {
+      return this.$store.getters.isBookmarkUser
+    },
+    userData () {
+      return this.$store.getters.userData
+    },
+    userRepositories () {
+      return this.$store.getters.userRepositories
+    }  
   },
   activated () {
     let self = this

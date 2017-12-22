@@ -1,5 +1,5 @@
 import axios from 'axios'
-const base_path = '//api.github.com/'
+const base_path = 'https://api.github.com/'
 
 export const state = {
   isShowSidebar: false,
@@ -96,31 +96,31 @@ export const actions = {
       localStorage.setItem('bookmarked-user', state.bookmarkUser)
     }
   },
-  getUserData({ commit }, username) {
+  getUserData({ commit }, user) {
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}`)
       .then(function (response) {
         commit('setLoading', false)
-        commit('setUserData', response.body)
+        commit('setUserData', response.data)
         let tabAct = {
-          login: response.body.login,
-          repos: response.body.public_repos,
-          follower: response.body.followers,
-          following: response.body.following,
-          isOrg: response.body.type !== 'User',
-          hideHome: state.bookmarkUser === response.body.login
+          login: response.data.login,
+          repos: response.data.public_repos,
+          follower: response.data.followers,
+          following: response.data.following,
+          isOrg: response.data.type !== 'User',
+          hideHome: state.bookmarkUser === response.data.login
         }
       })
       .catch(function (error) {
         commit('setLoading', false)
       });
   },
-  getUserRepositories({ commit }, data) {
+  getUserRepositories({ commit }, user) {
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/repos?per_page=100`)
       .then(function (response) {
         commit('setLoading', false)
-        let array = response.body
+        let array = response.data
         if (array) {
           array = array.sort(function (a, b) {
             let starA = a.stargazers_count
@@ -134,23 +134,23 @@ export const actions = {
         commit('setLoading', false)
       });
   },
-  getUserFollowers({ commit }, data) {
+  getUserFollowers({ commit }, user) {
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/followers`)
       .then(function (response) {
         commit('setLoading', false)
-        commit('setUserFollowers', response.body)
+        commit('setUserFollowers', response.data)
       })
       .catch(function (error) {
         commit('setLoading', false)
       });
   },
-  getUserFollowing({ commit }, data) {
+  getUserFollowing({ commit }, user) {
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/following`)
       .then(function (response) {
         commit('setLoading', false)
-        commit('setUserFollowing', response.body)
+        commit('setUserFollowing', response.data)
       })
       .catch(function (error) {
         commit('setLoading', false)
@@ -161,7 +161,7 @@ export const actions = {
     axios.get(`${base_path}search/users?q=${keyword}`)
       .then(function (response) {
         commit('setLoading', false)
-        commit('setUserSearchResult', response.body)
+        commit('setUserSearchResult', response.data)
       })
       .catch(function (error) {
         commit('setLoading', false)

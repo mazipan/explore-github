@@ -13,8 +13,6 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
 import RepositoryList from 'components/RepositoryList.vue'
 
 export default {
@@ -24,7 +22,9 @@ export default {
     userShowing: function () {
       return this.$route.params.user
     },
-    ...mapGetters(['userRepositories'])   
+    userRepositories () {
+      return this.$store.getters.userRepositories
+    }
   },
   activated () {
     if (this.userRepositories === null) {

@@ -30,13 +30,12 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'userprofileaction',
   computed: {
-    ...mapGetters(['userActionTab'])
+    userActionTab () {
+      return this.$store.getters.userActionTab
+    }
   },
 }
 </script>

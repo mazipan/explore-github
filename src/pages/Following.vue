@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import UserList from 'components/UserList.vue'
 
 export default {
@@ -21,7 +20,9 @@ export default {
     userShowing: function () {
       return this.$route.params.user
     },
-    ...mapGetters(['userFollowing'])  
+    userFollowing () {
+      return this.$store.getters.userFollowing
+    }
   },
   activated () {
     this.$store.dispatch('getUserFollowing', this.userShowing)

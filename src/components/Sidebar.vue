@@ -56,13 +56,15 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'Sidebar',
   computed: {
-    ...mapGetters(['isShowSidebar', 'userActionTab'])
+    isShowSidebar () {
+      return this.$store.getters.isShowSidebar
+    },
+    userActionTab () {
+      return this.$store.getters.userActionTab
+    }
   },
   methods: {
     navigateTo: function (e) {

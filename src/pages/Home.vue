@@ -22,8 +22,6 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
 import UserProfile from 'components/UserProfile.vue'
 import RepositoryList from 'components/RepositoryList.vue'
 
@@ -48,7 +46,18 @@ export default {
         return true
       } else return false
     },
-    ...mapGetters(['bookmarkUser', 'isBookmarkUser', 'userData', 'userRepositories'])    
+    bookmarkUser () {
+      return this.$store.getters.bookmarkUser
+    },
+    isBookmarkUser () {
+      return this.$store.getters.isBookmarkUser
+    },
+    userData () {
+      return this.$store.getters.userData
+    },
+    userRepositories () {
+      return this.$store.getters.userRepositories
+    }  
   },
   activated () {
     let self = this

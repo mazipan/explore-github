@@ -11,8 +11,6 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
 import UserList from 'components/UserList.vue'
 
 export default {
@@ -33,7 +31,9 @@ export default {
     keyword: function () {
       return this.$route.query.q
     },
-    ...mapGetters(['userSearchResult'])    
+    userSearchResult () {
+      return this.$store.getters.userSearchResult
+    }
   },
   activated () {
     this.$store.dispatch('searchUser', this.keyword)
