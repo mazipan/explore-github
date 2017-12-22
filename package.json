@@ -1,0 +1,84 @@
+{
+  "name": "explore-github",
+  "description": "Vue-Github-Explorer",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Irfan Maulana (https://github.com/mazipan/)",
+  "private": false,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --color --open",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "lint": "./node_modules/.bin/eslint --ext .js,.vue src test/*.js",
+    "test": "./node_modules/.bin/jest --coverage",
+    "dist": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mazipan/explore-github.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mazipan/explore-github/issues"
+  },
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "avoriaz": "^6.3.0",
+    "axios": "0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.7",
+    "compression-webpack-plugin": "^1.1.2",
+    "eslint": "^4.13.1",
+    "eslint-plugin-vue": "3.13.0",
+    "file-loader": "^1.1.6",
+    "jest": "^22.0.3",
+    "jest-vue-preprocessor": "^1.3.1",
+    "node-sass": "^4.7.2",
+    "octicons": "7.0.1",
+    "sass-loader": "^6.0.6",
+    "vue-lazyload": "1.1.4",
+    "vue-loader": "^13.6.1",
+
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.13",
+    "vuex": "3.0.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:vue/recommended"
+    ]
+  },
+  "eslintIgnore": [
+    "dist/*.js",
+    "build/*.js",
+    "config/*.js",
+    "dist",
+    "node_modules"
+  ],
+  "jest": {
+    "coverageDirectory": "test/coverage",
+    "moduleNameMapper": {
+      "^vue$": "vue/dist/vue.common.js",
+      "src/([^\\.]*)$": "<rootDir>/src/$1.vue"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
+    }
+  }
+}
