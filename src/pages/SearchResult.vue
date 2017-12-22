@@ -13,7 +13,7 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import UserList from 'components/UserList'
+import UserList from 'components/UserList.vue'
 
 export default {
   name: 'searchResult',

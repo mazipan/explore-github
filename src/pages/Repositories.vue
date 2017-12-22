@@ -15,7 +15,7 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import RepositoryList from 'components/RepositoryList'
+import RepositoryList from 'components/RepositoryList.vue'
 
 export default {
   name: 'RepositoriesPage',

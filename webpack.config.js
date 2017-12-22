@@ -1,6 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 
+const PAGES = path.resolve(__dirname, "src/pages");
+const COMPONENTS = path.resolve(__dirname, "src/components");
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -28,14 +31,18 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader'
       }
     ]
   },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'components': path.resolve(__dirname, 'src/components'),
-      'pages': path.resolve(__dirname, 'src/pages')
+			pages: PAGES,
+			components: COMPONENTS,
     }
   },
   devServer: {

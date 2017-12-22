@@ -4,9 +4,9 @@
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
 
-import router from 'src/router'
-import store from 'src/store'
-import App from 'App'
+import router from './router'
+import store from './store'
+import App from './App.vue'
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   Vue.config.devtools = true
 }
 
-require("octicons/build/octicons.min.css")
+require("octicons/build/build.css")
 
 /* eslint-disable no-new */
 new Vue({

@@ -24,8 +24,8 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import UserProfile from 'components/UserProfile'
-import RepositoryList from 'components/RepositoryList'
+import UserProfile from 'components/UserProfile.vue'
+import RepositoryList from 'components/RepositoryList.vue'
 
 export default {
   name: 'HomePage',

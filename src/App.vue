@@ -27,9 +27,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Sidebar from 'components/Sidebar'
-import HeaderSection from 'components/HeaderSection'
-import UserProfileAction from 'components/UserProfileAction'
+import Sidebar from 'components/Sidebar.vue'
+import HeaderSection from 'components/HeaderSection.vue'
+import UserProfileAction from 'components/UserProfileAction.vue'
 
 export default {
   name: 'app',

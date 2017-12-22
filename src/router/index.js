@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from 'src/pages/Home'
-import Profile from 'src/pages/Profile'
-import Repositories from 'src/pages/Repositories'
-import Following from 'src/pages/Following'
-import Followers from 'src/pages/Followers'
-import SearchResult from 'src/pages/SearchResult'
-import About from 'src/pages/About'
+import Home from '../pages/Home.vue'
+import Profile from '../pages/Profile.vue'
+import Repositories from '../pages/Repositories.vue'
+import Following from '../pages/Following.vue'
+import Followers from '../pages/Followers.vue'
+import SearchResult from '../pages/SearchResult.vue'
+import About from '../pages/About.vue'
 
 Vue.use(Router)
 
