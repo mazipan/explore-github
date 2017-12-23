@@ -89,6 +89,7 @@ export const mutations = {
 
 export const actions = {
   readBookmarkUser({ commit }) {
+    console.log('calling action readBookmarkUser()')
     let user = localStorage.getItem('bookmarked-user')
     if (user) {
       commit('setBookmarkUser', user)
@@ -97,12 +98,14 @@ export const actions = {
     }
   },
   getUserData({ commit }, user) {
+    console.log('calling action getUserData()')
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}`)
       .then(function (response) {
+        console.log('response ', response.data)
         commit('setLoading', false)
         commit('setUserData', response.data)
-        let tabAct = {
+        let userActionTab = {
           login: response.data.login,
           repos: response.data.public_repos,
           follower: response.data.followers,
@@ -110,15 +113,18 @@ export const actions = {
           isOrg: response.data.type !== 'User',
           hideHome: state.bookmarkUser === response.data.login
         }
+        commit('setUserActionTab', userActionTab)
       })
       .catch(function (error) {
         commit('setLoading', false)
       });
   },
   getUserRepositories({ commit }, user) {
+    console.log('calling action getUserRepositories()')
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/repos?per_page=100`)
       .then(function (response) {
+        console.log('response ', response.data)
         commit('setLoading', false)
         let array = response.data
         if (array) {
@@ -135,9 +141,11 @@ export const actions = {
       });
   },
   getUserFollowers({ commit }, user) {
+    console.log('calling action getUserFollowers()')
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/followers`)
       .then(function (response) {
+        console.log('response ', response.data)
         commit('setLoading', false)
         commit('setUserFollowers', response.data)
       })
@@ -146,9 +154,11 @@ export const actions = {
       });
   },
   getUserFollowing({ commit }, user) {
+    console.log('calling action getUserFollowing()')
     commit('setLoading', true)
     axios.get(`${base_path}users/${user}/following`)
       .then(function (response) {
+        console.log('response ', response.data)
         commit('setLoading', false)
         commit('setUserFollowing', response.data)
       })
@@ -157,9 +167,11 @@ export const actions = {
       });
   },
   searchUser({ commit }, keyword) {
+    console.log('calling action searchUser()')
     commit('setLoading', true)
     axios.get(`${base_path}search/users?q=${keyword}`)
       .then(function (response) {
+        console.log('response ', response.data)
         commit('setLoading', false)
         commit('setUserSearchResult', response.data)
       })
