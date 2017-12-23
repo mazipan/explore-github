@@ -10,6 +10,8 @@
 
 [![Vue-Github-Explorer](https://raw.githubusercontent.com/mazipan/explore-github/master/images/github-explorer-blue.png)](https://mazipan.github.io/explore-github/)
 
+[![Vue-Github-Explorer](https://raw.githubusercontent.com/mazipan/explore-github/master/screenshoot.png)](https://mazipan.github.io/explore-github/)
+
 ### Technology Used
 + API by Github v3 [https://developer.github.com/v3/](https://developer.github.com/v3/)
 + Vue.js
