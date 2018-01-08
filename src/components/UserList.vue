@@ -11,7 +11,7 @@
     </div>
     <ul class="results">
       <li v-for="(res, index) in listUser" :key="res.id" class="result">
-        <div class="google-ads" v-if="index === 5">
+        <div class="google-ads" v-if="index % 5 === 0">
           <script2 type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script2>
           <ins class="adsbygoogle"
               style="display:block"
@@ -55,8 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .google-ads{
-  width: 100%;
-  height: 100px;
+  width: 90%;
 }
 .empty-state{
   text-align: center;

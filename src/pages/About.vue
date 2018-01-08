@@ -12,8 +12,20 @@
         https://developer.github.com/v3/
       </a>
     </h5>
+    <div class="google-ads">
+      <script2 async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script2>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-5442972248172818"
+          data-ad-slot="7974047383"></ins>
+      <script2>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script2>
+    </div>
     <br>
-    <p>
+    <div>
       <h5>Crafted with <i class="fa fa-heart"></i> by : </h5>
       <a href="mailto:mazipanneh@gmail.com">
         <img v-lazy="'https://img.shields.io/badge/mazipanneh-Email-yellow.svg?maxAge=3600'" alt="Email" class="badge">
@@ -24,7 +36,7 @@
       <a href="https://facebook.com/mazipanneh">
         <img v-lazy="'https://img.shields.io/badge/mazipanneh-Facebook-blue.svg?maxAge=3600'" alt="Facebook" class="badge">
       </a>
-    </p>
+    </div>
     <p>
       <a href="https://twitter.com/Maz_Ipan">
       <img v-lazy="'https://img.shields.io/badge/Maz_Ipan-Twitter-55acee.svg?maxAge=3600'" alt="Twitter"  class="badge"></a>
@@ -46,6 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.google-ads{
+  width: 90%;
+}
 .about{
   text-align: center;
 
