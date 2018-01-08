@@ -1,12 +1,12 @@
 <template>
   <ul class="repos">
     <li class="repo" v-for="(repo, index) in repositories" :key="repo.id">
-      <div v-if="index === 5">
+      <div class="google-ads" v-if="index === 5">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <ins class="adsbygoogle"
             style="display:block"
             data-ad-format="fluid"
-            data-ad-layout-key="-cu+3y+88-a1+5"
+            data-ad-layout-key="-fg+5n+6t-e7+r"
             data-ad-client="ca-pub-5442972248172818"
             data-ad-slot="2105028631"></ins>
         <script>
@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.google-ads{
+  width: 100%;
+  height: 100px;
+}
 .repos{
     padding: 0;
     margin: 0;

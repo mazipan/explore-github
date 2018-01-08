@@ -10,15 +10,27 @@
       {{ listTitle }} <b><i>{{ userShowing }}</i></b>
     </div>
     <ul class="results">
-      <li v-for="res in listUser" class="result">
+      <li v-for="(res, index) in listUser" :key="res.id" class="result">
+        <div class="google-ads" v-if="index === 5">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-format="fluid"
+              data-ad-layout-key="-fg+5n+6t-e7+r"
+              data-ad-client="ca-pub-5442972248172818"
+              data-ad-slot="2105028631"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
         <router-link :to="'/' + res.login + '/profile/'">
-          <img class="result__img" v-lazy="res.avatar_url" />   
-          <span class="result__name">{{ res.login }}</span>  
+          <img class="result__img" v-lazy="res.avatar_url" />
+          <span class="result__name">{{ res.login }}</span>
           <i class="fa fa-chevron-right icon"></i>
         </router-link>
       </li>
     </ul>
-</div>  
+</div>
 </template>
 
 <script>
@@ -42,6 +54,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.google-ads{
+  width: 100%;
+  height: 100px;
+}
 .empty-state{
   text-align: center;
   font-size: 24px;
@@ -68,10 +84,10 @@ export default {
     display: block;
     padding: 14px 15px 14px 14px;
     line-height: inherit;
-    text-align: left;   
+    text-align: left;
     color: #0096d9;
     text-decoration: none;
-    border-top: 1px solid #eaecef;    
+    border-top: 1px solid #eaecef;
   }
 
   &__img{

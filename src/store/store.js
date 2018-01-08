@@ -1,5 +1,12 @@
 import axios from 'axios'
+import { getCache, saveCache } from "@/cache";
+
 const base_path = 'https://api.github.com/'
+const CACHEKEY_USERDATA = 'USER_DATA_'
+const CACHEKEY_USERREPO = 'USER_REPO_'
+const CACHEKEY_USERFOLLOWER = 'USER_FOLLOWER_'
+const CACHEKEY_USERFOLLOWING = 'USER_FOLLOWING_'
+const CACHEKEY_USERSEARCH = 'USER_SEARCH_'
 
 export const state = {
   isShowSidebar: false,
@@ -97,87 +104,134 @@ export const actions = {
       localStorage.setItem('bookmarked-user', state.bookmarkUser)
     }
   },
-  getUserData({ commit }, user) {
+  setUserActionTab({ commit }, data) {
+    let userActionTab = {
+      login: data.login,
+      repos: data.public_repos,
+      follower: data.followers,
+      following: data.following,
+      isOrg: data.type !== 'User',
+      hideHome: state.bookmarkUser === data.login
+    }
+    commit('setUserActionTab', userActionTab)
+  },
+  getUserData({ commit, dispatch }, user) {
     console.log('calling action getUserData()')
     commit('setLoading', true)
-    axios.get(`${base_path}users/${user}`)
-      .then(function (response) {
-        console.log('response ', response.data)
-        commit('setLoading', false)
-        commit('setUserData', response.data)
-        let userActionTab = {
-          login: response.data.login,
-          repos: response.data.public_repos,
-          follower: response.data.followers,
-          following: response.data.following,
-          isOrg: response.data.type !== 'User',
-          hideHome: state.bookmarkUser === response.data.login
-        }
-        commit('setUserActionTab', userActionTab)
-      })
-      .catch(function (error) {
-        commit('setLoading', false)
-      });
+    let cache = getCache(`${CACHEKEY_USERDATA}${user}`)
+    if (cache) {
+      commit('setLoading', false)
+      commit('setUserData', cache)
+      dispatch('setUserActionTab', cache)
+    } else {
+      axios.get(`${base_path}users/${user}`)
+        .then(function (response) {
+          console.log('response ', response.data)
+          saveCache(`${CACHEKEY_USERDATA}${user}`, response.data)
+          commit('setLoading', false)
+          commit('setUserData', response.data)
+          dispatch('setUserActionTab', response.data)
+        })
+        .catch(function (error) {
+          commit('setLoading', false)
+        });
+    }
   },
   getUserRepositories({ commit }, user) {
     console.log('calling action getUserRepositories()')
     commit('setLoading', true)
-    axios.get(`${base_path}users/${user}/repos?per_page=100`)
-      .then(function (response) {
-        console.log('response ', response.data)
-        commit('setLoading', false)
-        let array = response.data
-        if (array) {
-          array = array.sort(function (a, b) {
-            let starA = a.stargazers_count
-            let starB = b.stargazers_count
-            return starB > starA ? 1 : starB < starA ? -1 : 0
-          })
-        }
-        commit('setUserRepositories', array)
+    let cache = getCache(`${CACHEKEY_USERREPO}${user}`)
+    if (cache) {
+      commit('setLoading', false)
+      cache = cache.sort(function (a, b) {
+        let starA = a.stargazers_count
+        let starB = b.stargazers_count
+        return starB > starA ? 1 : starB < starA ? -1 : 0
       })
-      .catch(function (error) {
-        commit('setLoading', false)
-      });
+      commit('setUserRepositories', cache)
+    } else {
+      axios.get(`${base_path}users/${user}/repos?per_page=100`)
+        .then(function (response) {
+          console.log('response ', response.data)
+          commit('setLoading', false)
+          saveCache(`${CACHEKEY_USERREPO}${user}`, response.data)
+          let array = response.data
+          if (array) {
+            array = array.sort(function (a, b) {
+              let starA = a.stargazers_count
+              let starB = b.stargazers_count
+              return starB > starA ? 1 : starB < starA ? -1 : 0
+            })
+          }
+          commit('setUserRepositories', array)
+        })
+        .catch(function (error) {
+          commit('setLoading', false)
+        });
+    }
+
   },
   getUserFollowers({ commit }, user) {
     console.log('calling action getUserFollowers()')
     commit('setLoading', true)
-    axios.get(`${base_path}users/${user}/followers`)
-      .then(function (response) {
-        console.log('response ', response.data)
-        commit('setLoading', false)
-        commit('setUserFollowers', response.data)
-      })
-      .catch(function (error) {
-        commit('setLoading', false)
-      });
+    let cache = getCache(`${CACHEKEY_USERFOLLOWER}${user}`)
+    if (cache) {
+      commit('setLoading', false)
+      commit('setUserFollowers', cache)
+    } else {
+      axios.get(`${base_path}users/${user}/followers`)
+        .then(function (response) {
+          console.log('response ', response.data)
+          commit('setLoading', false)
+          saveCache(`${CACHEKEY_USERFOLLOWER}${user}`, response.data)
+          commit('setUserFollowers', response.data)
+        })
+        .catch(function (error) {
+          commit('setLoading', false)
+        });
+    }
+
   },
   getUserFollowing({ commit }, user) {
     console.log('calling action getUserFollowing()')
     commit('setLoading', true)
-    axios.get(`${base_path}users/${user}/following`)
-      .then(function (response) {
-        console.log('response ', response.data)
-        commit('setLoading', false)
-        commit('setUserFollowing', response.data)
-      })
-      .catch(function (error) {
-        commit('setLoading', false)
-      });
+    let cache = getCache(`${CACHEKEY_USERFOLLOWING}${user}`)
+    if (cache) {
+      commit('setLoading', false)
+      commit('setUserFollowing', cache)
+    } else {
+      axios.get(`${base_path}users/${user}/following`)
+        .then(function (response) {
+          console.log('response ', response.data)
+          commit('setLoading', false)
+          saveCache(`${CACHEKEY_USERFOLLOWING}${user}`, response.data)
+          commit('setUserFollowing', response.data)
+        })
+        .catch(function (error) {
+          commit('setLoading', false)
+        });
+    }
+
   },
   searchUser({ commit }, keyword) {
     console.log('calling action searchUser()')
     commit('setLoading', true)
-    axios.get(`${base_path}search/users?q=${keyword}`)
-      .then(function (response) {
-        console.log('response ', response.data)
-        commit('setLoading', false)
-        commit('setUserSearchResult', response.data)
-      })
-      .catch(function (error) {
-        commit('setLoading', false)
-      })
+    let cache = getCache(`${CACHEKEY_USERSEARCH}${keyword}`)
+    if (cache) {
+      commit('setLoading', false)
+      commit('setUserSearchResult', cache)
+    } else {
+      axios.get(`${base_path}search/users?q=${keyword}`)
+        .then(function (response) {
+          console.log('response ', response.data)
+          commit('setLoading', false)
+          saveCache(`${CACHEKEY_USERSEARCH}${keyword}`, response.data)
+          commit('setUserSearchResult', response.data)
+        })
+        .catch(function (error) {
+          commit('setLoading', false)
+        });
+    }
   }
 }
 
