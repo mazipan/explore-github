@@ -1,7 +1,7 @@
 <template>
   <ul class="repos">
     <li class="repo" v-for="(repo, index) in repositories" :key="repo.id">
-      <div class="google-ads" v-if="index % 5 === 0">
+      <div class="google-ads" v-if="(index > 0) && (index%5 === 0)">
         <script2 type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script2>
         <ins class="adsbygoogle"
             style="display:block"
