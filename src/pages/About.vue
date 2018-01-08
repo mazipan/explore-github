@@ -1,13 +1,13 @@
 <template>
   <div class="grid__row about">
-    <img v-lazy="'/explore-github/images/github-explorer-blue.png'" />
+    <img v-lazy="'assets/images/github-explorer-blue.png'" />
     <h1>Vue Github Explorer</h1>
-    <h5>See Source Code : 
+    <h5>See Source Code :
       <a href="https://github.com/mazipan/explore-github" target="_blank">
         https://github.com/mazipan/explore-github
       </a>
     </h5>
-    <h5>API by Github API v3 : 
+    <h5>API by Github API v3 :
       <a href="https://developer.github.com/v3/" target="_blank">
         https://developer.github.com/v3/
       </a>

@@ -1,10 +1,10 @@
 <template>
-  <aside class="sidebar">    
-    <div class="sidebar__content">  
-      <div class="sidebar__head">      
-        <img v-lazy="'/explore-github/images/github-explorer-white.png'">
-      </div>    
-      <ul class="sidebar__menu">    
+  <aside class="sidebar">
+    <div class="sidebar__content">
+      <div class="sidebar__head">
+        <img v-lazy="'assets/images/github-explorer-white.png'">
+      </div>
+      <ul class="sidebar__menu">
 
         <li class="sidebar__item">
           <router-link to="/" @click.native="navigateTo" class="sidebar__link">
@@ -13,7 +13,7 @@
         </li>
 
         <li class="sidebar__item">
-          <router-link :to="'/' + userActionTab.login + '/profile/'"  
+          <router-link :to="'/' + userActionTab.login + '/profile/'"
              @click.native="navigateTo"
             v-if="userActionTab.hideHomeIcon" class="sidebar__link">
             <i class="fa fa-user"></i> Profile
@@ -21,7 +21,7 @@
         </li>
 
         <li class="sidebar__item">
-          <router-link :to="'/' + userActionTab.login + '/repositories/'" 
+          <router-link :to="'/' + userActionTab.login + '/repositories/'"
             @click.native="navigateTo"
             class="sidebar__link">
             <i class="fa fa-cubes"></i>  Repositories
@@ -29,7 +29,7 @@
         </li>
 
         <li class="sidebar__item" v-if="!userActionTab.isOrg">
-          <router-link :to="'/' + userActionTab.login + '/followers/'" 
+          <router-link :to="'/' + userActionTab.login + '/followers/'"
             @click.native="navigateTo"
             class="sidebar__link">
             <i class="fa fa-paw"></i>  Followers
@@ -37,7 +37,7 @@
         </li>
 
         <li class="sidebar__item" v-if="!userActionTab.isOrg">
-          <router-link :to="'/' + userActionTab.login + '/following/'" 
+          <router-link :to="'/' + userActionTab.login + '/following/'"
             @click.native="navigateTo"
             class="sidebar__link">
             <i class="fa fa-users"></i>  Following
@@ -94,7 +94,7 @@ export default {
     -webkit-transition: transform 300ms;
        -moz-transition: transform 300ms;
          -o-transition: transform 300ms;
-            transition: transform 300ms;    
+            transition: transform 300ms;
 
     &--open {
       -ms-transform: translateX(0);
@@ -118,13 +118,13 @@ export default {
       overflow: auto;
       background: #fff;
     }
-    
+
     &__menu {
       margin: 0;
       padding: 0;
       list-style: none;
     }
-    
+
     &__link {
       display: block;
       color: #000;

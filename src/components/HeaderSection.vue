@@ -1,5 +1,5 @@
 <template>
-  <header class="header">  
+  <header class="header">
     <div class="header__sticky">
       <div class="header__nav">
         <a class="header__hamburger" href="javascript:void(0)" @click="toggleSidebar" title="Open Sidebar">
@@ -8,8 +8,8 @@
       </div>
       <div class="header__content">
           <router-link to="/">
-              <img class="header__brand" 
-                    v-lazy="'/explore-github/images/github-explorer-white.png'" 
+              <img class="header__brand"
+                    v-lazy="'assets/images/github-explorer-white.png'"
                     alt="Brand">
           </router-link>
       </div>
@@ -18,16 +18,16 @@
           <i class="fa fa-search"></i>
         </a>
       </div>
-    </div> 
+    </div>
     <div class="search" v-if="showSearchBlock">
-      <input 
-        type="text" 
-        name="keyword" 
+      <input
+        type="text"
+        name="keyword"
         placeholder="Type keyword to search"
         class="search__text"
         @keyup.enter="doSearch"
         v-model="keyword"/>
-      <button 
+      <button
         class="search__btn"
         @click="doSearch"  title="Search User">
         <i class="fa fa-search"></i>
@@ -110,7 +110,7 @@ export default {
     }
   }
 
-  &__hamburger, &__search {      
+  &__hamburger, &__search {
     background: none;
     border: none;
     padding: 0;
@@ -131,7 +131,7 @@ export default {
     color: #fff;
     border-bottom: .5em solid #0096d9;
     cursor: pointer;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;

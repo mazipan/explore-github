@@ -6,12 +6,12 @@
     <sidebar v-bind:class="{'sidebar--open': isShowSidebar}"></sidebar>
 
     <header-section @toggleSidebar="toggleSidebar"></header-section>
-    
+
     <div class="loading" v-show="isLoading">
-      <img src="/explore-github/images/loading.gif">
+      <img src="assets/images/loading.gif">
     </div>
 
-    <div class="main">      
+    <div class="main">
       <transition name="fade" mode="out-in">
         <keep-alive>
           <router-view></router-view>
@@ -73,7 +73,7 @@ export default {
     z-index: 19;
   }
   .main{
-    
+
   }
   .loading{
     text-align: center;

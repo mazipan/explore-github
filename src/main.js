@@ -8,14 +8,17 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 
+Vue.use(require('vue-script2'))
+
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: '/explore-github/images/brand.png',
-  loading: '/explore-github/images/loading.gif',
+  error: 'assets/images/brand.png',
+  loading: 'assets/images/loading.gif',
   attempt: 1
 })
-
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === "production") {
+	require("./pwa");
+} else {
   Vue.config.devtools = true
 }
 
