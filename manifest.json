@@ -1,6 +1,6 @@
 {
 	"name": "Github Explorer",
-	"short_name": "Github Explorer",
+	"short_name": "GH-Explorer",
 	"start_url": "/explore-github/",
 	"display": "standalone",
 	"orientation": "portrait",
