@@ -3,7 +3,7 @@
     <img v-lazy="profileImg" class="profile__img"/>
 
     <a class="thropy"  title="See Git Award"
-      :href="'http://git-awards.com/users/search?login=' + userData.login" target="_blank">
+      :href="'http://git-awards.com/users/search?login=' + userData.login" target="_blank" rel="noopener">
       <i class="fa fa-trophy" aria-hidden="true"></i>
     </a>
 

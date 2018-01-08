@@ -3,12 +3,12 @@
     <img v-lazy="'assets/images/github-explorer-blue.png'" />
     <h1>Vue Github Explorer</h1>
     <h5>See Source Code :
-      <a href="https://github.com/mazipan/explore-github" target="_blank">
+      <a href="https://github.com/mazipan/explore-github" target="_blank" rel="noopener">
         https://github.com/mazipan/explore-github
       </a>
     </h5>
     <h5>API by Github API v3 :
-      <a href="https://developer.github.com/v3/" target="_blank">
+      <a href="https://developer.github.com/v3/" target="_blank" rel="noopener">
         https://developer.github.com/v3/
       </a>
     </h5>
