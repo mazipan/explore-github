@@ -12,16 +12,14 @@
     <ul class="results">
       <li v-for="(res, index) in listUser" :key="res.id" class="result">
         <div class="google-ads" v-if="(index > 0) && (index%5 === 0)">
-          <script2 type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script2>
-          <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-format="fluid"
-              data-ad-layout-key="-fg+5n+6t-e7+r"
-              data-ad-client="ca-pub-5442972248172818"
-              data-ad-slot="2105028631"></ins>
-          <script2>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-          </script2>
+
+          <InFeedAdsense
+            root-class="wrapper VueInFeedAdsense"
+            data-ad-layout-key="-fg+5n+6t-e7+r"
+            data-ad-client="ca-pub-5442972248172818"
+            data-ad-slot="2105028631">
+          </InFeedAdsense>
+
         </div>
         <router-link :to="'/' + res.login + '/profile/'">
           <img class="result__img" v-lazy="res.avatar_url" />

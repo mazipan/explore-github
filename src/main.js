@@ -8,7 +8,13 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 
+import Ads from 'vue-google-adsense'
+
 Vue.use(require('vue-script2'))
+
+Vue.use(Ads.Adsense)
+Vue.use(Ads.InArticleAdsense)
+Vue.use(Ads.InFeedAdsense)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
