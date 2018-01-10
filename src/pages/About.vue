@@ -12,15 +12,15 @@
         https://developer.github.com/v3/
       </a>
     </h5>
-    <div class="google-ads">
 
+    <div class="google-ads">
       <InArticleAdsense
           root-class="wrapper VueInArticleAdsense"
-          data-ad-client="ca-pub-5442972248172818"
-          data-ad-slot="7974047383">
+          :data-ad-client="client"
+          :data-ad-slot="slot">
       </InArticleAdsense>
-
     </div>
+
     <br>
     <div>
       <h5>Crafted with <i class="fa fa-heart"></i> by : </h5>
@@ -34,22 +34,28 @@
         <img v-lazy="'https://img.shields.io/badge/mazipanneh-Facebook-blue.svg?maxAge=3600'" alt="Facebook" class="badge">
       </a>
     </div>
-    <p>
+    <div>
       <a href="https://twitter.com/Maz_Ipan">
       <img v-lazy="'https://img.shields.io/badge/Maz_Ipan-Twitter-55acee.svg?maxAge=3600'" alt="Twitter"  class="badge"></a>
       <a href="https://id.linkedin.com/in/irfanmaulanamazipan">
       <img v-lazy="'https://img.shields.io/badge/irfanmaulanamazipan-Linkedin-0077b5.svg?maxAge=3600'" alt="Linkedin" class="badge"></a>
       <a href="https://www.slideshare.net/IrfanMaulana21">
       <img v-lazy="'https://img.shields.io/badge/IrfanMaulana21-Slideshare-0077b5.svg?maxAge=3600'" alt="Slideshare" class="badge"></a>
-    </p>
+    </div>
   </div>
 </template>
 
 <script>
+import constant from '@/constant'
 
 export default {
   name: 'AboutPage',
-  computed: {}
+  data () {
+    return {
+      slot: constant.ADS.slotInArticle,
+      client: constant.ADS.client
+    }
+  }
 }
 
 </script>

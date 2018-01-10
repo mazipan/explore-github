@@ -5,9 +5,9 @@
 
         <InFeedAdsense
             root-class="wrapper VueInFeedAdsense"
-            data-ad-layout-key="-fg+5n+6t-e7+r"
-            data-ad-client="ca-pub-5442972248172818"
-            data-ad-slot="2105028631">
+            :data-ad-layout-key="layout"
+            :data-ad-client="client"
+            :data-ad-slot="slot">
         </InFeedAdsense>
 
       </div>
@@ -25,13 +25,17 @@
 </template>
 
 <script>
+import constant from '@/constant'
 
 export default {
   name: 'repositorylist',
   props: ['repositories'],
-  computed: {
-  },
-  methods: {
+  data () {
+    return {
+      layout: constant.ADS.layout,
+      slot: constant.ADS.slotInFeed,
+      client: constant.ADS.client
+    }
   }
 }
 
