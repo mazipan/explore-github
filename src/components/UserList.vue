@@ -24,7 +24,7 @@
         <router-link :to="'/' + res.login + '/profile/'">
           <img class="result__img" v-lazy="res.avatar_url" />
           <span class="result__name">{{ res.login }}</span>
-          <i class="fa fa-chevron-right icon"></i>
+          <IosArrowRightIcon w="1em" h="1em"/>
         </router-link>
       </li>
     </ul>
@@ -33,10 +33,14 @@
 
 <script>
 import constant from '@/constant'
+import IosArrowRightIcon from 'icons/ios-arrow-right'
 
 export default {
   name: 'followerlist',
   props: ['listUser', 'listTitle', 'userShowing'],
+  components: {
+    IosArrowRightIcon
+  },
   computed: {
     isEmptyResult: function () {
       let res = true
@@ -109,7 +113,7 @@ export default {
   margin: 10px;
   font-size: 24px;
 }
-.icon{
+.ion{
   float: right;
   padding-top: 10px;
   font-size: 24px;

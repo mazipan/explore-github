@@ -11,6 +11,7 @@ const SRC = path.resolve(__dirname, "src");
 const ASSETS = path.resolve(__dirname, "src/assets");
 const PAGES = path.resolve(__dirname, "src/pages");
 const COMPONENTS = path.resolve(__dirname, "src/components");
+const IONICONS = path.resolve(__dirname, "node_modules/vue-ionicons/dist");
 
 const ENV = process.env.NODE_ENV || 'development';
 const CSS_MAPS = ENV !== 'production';
@@ -87,12 +88,14 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.json', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': SRC,
 			pages: PAGES,
       components: COMPONENTS,
       assets: ASSETS,
+      'icons': IONICONS
     }
   },
   plugins: ([

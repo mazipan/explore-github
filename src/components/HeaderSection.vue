@@ -3,7 +3,7 @@
     <div class="header__sticky">
       <div class="header__nav">
         <a class="header__hamburger" href="javascript:void(0)" @click="toggleSidebar" title="Open Sidebar">
-          <i class="fa fa-bars"></i>
+          <AndroidMenuIcon w="30px" h="30px" />
         </a>
       </div>
       <div class="header__content">
@@ -15,7 +15,7 @@
       </div>
       <div class="header__nav pointer">
         <a class="header__search" href="javascript:void(0)" @click="toggleSearchBlock" title="Search User">
-          <i class="fa fa-search"></i>
+          <AndroidSearchIcon w="30px" h="30px" />
         </a>
       </div>
     </div>
@@ -30,16 +30,22 @@
       <button
         class="search__btn"
         @click="doSearch"  title="Search User">
-        <i class="fa fa-search"></i>
+          <AndroidSearchIcon w="1em" h="1em" />
       </button>
     </div>
   </header>
 </template>
 
 <script>
+import AndroidMenuIcon from 'icons/android-menu'
+import AndroidSearchIcon from 'icons/android-search'
 
 export default {
   name: 'Header',
+  components: {
+    AndroidMenuIcon,
+    AndroidSearchIcon
+  },
   data () {
     return {
       showSearchBlock: false,
@@ -71,6 +77,7 @@ export default {
 }
 .header {
   height: 60px;
+  color: #fff;
 
   &__sticky{
     position: fixed; top: 0; right: 0; left: 0;
@@ -99,11 +106,13 @@ export default {
     vertical-align: middle;
 
     &:first-child{
+      color: #fff;
       text-align: left;
       padding-left: 15px;
       width: 50px;
     }
     &:last-child{
+      color: #fff;
       text-align: right;
       padding-right: 15px;
       width: 50px;

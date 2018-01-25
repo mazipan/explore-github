@@ -58,7 +58,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  // import ionicons global scss
+  @import "~vue-ionicons/ionicons.scss";
+
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
   }
@@ -71,9 +74,6 @@ export default {
     top:0px; right: 0px; bottom: 0px; left: 0px;
     height: 100%;
     z-index: 19;
-  }
-  .main{
-
   }
   .loading{
     text-align: center;

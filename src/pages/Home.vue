@@ -7,13 +7,13 @@
       Bookmark user was not found!
       <br/>
     </div>
-    <user-profile 
+    <user-profile
       :isBookmarked="isBookmarkUser"
-      :userData="userData" 
+      :userData="userData"
       v-if="showingUserData">
     </user-profile>
-    
-    <repository-list 
+
+    <repository-list
       :repositories="userRepositories"
       v-if="showingRepoData">
     </repository-list>
@@ -24,10 +24,15 @@
 <script>
 import UserProfile from 'components/UserProfile.vue'
 import RepositoryList from 'components/RepositoryList.vue'
+import TrophyIcon from 'icons/trophy'
 
 export default {
   name: 'HomePage',
-  components: {UserProfile, RepositoryList},
+  components: {
+    UserProfile,
+    RepositoryList,
+    TrophyIcon
+  },
   data () {
     return {
       selectedUser: 'mazipan'
@@ -57,7 +62,7 @@ export default {
     },
     userRepositories () {
       return this.$store.getters.userRepositories
-    }  
+    }
   },
   activated () {
     let self = this

@@ -8,7 +8,7 @@
 
         <li class="sidebar__item">
           <router-link to="/" @click.native="navigateTo" class="sidebar__link">
-            <i class="fa fa-home"></i> Home
+            <IosHomeIcon w="30px" h="30px"/>  Home
           </router-link>
         </li>
 
@@ -16,7 +16,7 @@
           <router-link :to="'/' + userActionTab.login + '/profile/'"
              @click.native="navigateTo"
             v-if="userActionTab.hideHomeIcon" class="sidebar__link">
-            <i class="fa fa-user"></i> Profile
+              <AndroidContactIcon w="30px" h="30px"/>  Profile
           </router-link>
         </li>
 
@@ -24,7 +24,7 @@
           <router-link :to="'/' + userActionTab.login + '/repositories/'"
             @click.native="navigateTo"
             class="sidebar__link">
-            <i class="fa fa-cubes"></i>  Repositories
+              <IosBoxIcon w="30px" h="30px"/>  Repositories
           </router-link>
         </li>
 
@@ -32,7 +32,7 @@
           <router-link :to="'/' + userActionTab.login + '/followers/'"
             @click.native="navigateTo"
             class="sidebar__link">
-            <i class="fa fa-paw"></i>  Followers
+              <IosPawIcon w="30px" h="30px"/>  Followers
           </router-link>
         </li>
 
@@ -40,13 +40,13 @@
           <router-link :to="'/' + userActionTab.login + '/following/'"
             @click.native="navigateTo"
             class="sidebar__link">
-            <i class="fa fa-users"></i>  Following
+              <IosPeopleIcon w="30px" h="30px"/>  Following
           </router-link>
         </li>
 
         <li class="sidebar__item">
           <router-link to="/about" @click.native="navigateTo" class="sidebar__link">
-            <i class="fa fa-question-circle"></i> About
+              <HelpCircledIcon w="30px" h="30px"/> About
           </router-link>
         </li>
 
@@ -56,8 +56,23 @@
 </template>
 
 <script>
+import IosHomeIcon from 'icons/ios-home'
+import IosBoxIcon from 'icons/ios-box'
+import IosPawIcon from 'icons/ios-paw'
+import IosPeopleIcon from 'icons/ios-people'
+import HelpCircledIcon from 'icons/help-circled'
+import AndroidContactIcon from 'icons/android-contact'
+
 export default {
   name: 'Sidebar',
+  components: {
+    IosHomeIcon,
+    IosBoxIcon,
+    IosPawIcon,
+    IosPeopleIcon,
+    HelpCircledIcon,
+    AndroidContactIcon
+  },
   computed: {
     isShowSidebar () {
       return this.$store.getters.isShowSidebar
@@ -131,12 +146,8 @@ export default {
       text-decoration: none;
       padding: 15px 25px;
       font-size: 16px;
-
-      i {
-        font-size: 24px;
-        margin-right: 15px;
-        vertical-align: middle;
-      }
+      display: flex;
+      align-items: center;
     }
   }
 

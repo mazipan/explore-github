@@ -1,37 +1,52 @@
 <template>
   <div class="action">
-    <div class="action__tab">        
+    <div class="action__tab">
       <router-link to="/" class="action__link" v-if="!userActionTab.hideHomeIcon">
-        <i class="fa fa-home action__icon"></i>          
-      </router-link>    
+          <IosHomeIcon w="30px" h="30px"/>
+      </router-link>
       <router-link :to="'/' + userActionTab.login + '/profile/'"  v-if="userActionTab.hideHomeIcon" class="action__link">
-        <i class="fa fa-user action__icon"></i>          
+          <IosHomeIcon w="30px" h="30px"/>
       </router-link>
     </div>
-    <div class="action__tab">        
+    <div class="action__tab">
       <router-link :to="'/' + userActionTab.login + '/repositories/'" class="action__link">
-        <i class="fa fa-cubes action__icon"></i>   
-        <span class="action__badge" v-if="userActionTab.repos">{{ userActionTab.repos }}</span>            
+        <IosBoxIcon w="30px" h="30px"/>
+        <span class="action__badge" v-if="userActionTab.repos">{{ userActionTab.repos }}</span>
       </router-link>
     </div>
     <div class="action__tab" v-if="!userActionTab.isOrg">
       <router-link :to="'/' + userActionTab.login + '/followers/'" class="action__link">
-        <i class="fa fa-paw action__icon"></i>   
-        <span class="action__badge" v-if="userActionTab.followers">{{ userActionTab.followers }}</span>  
+        <IosPawIcon w="30px" h="30px"/>
+        <span class="action__badge" v-if="userActionTab.followers">{{ userActionTab.followers }}</span>
       </router-link>
     </div>
     <div class="action__tab" v-if="!userActionTab.isOrg">
       <router-link :to="'/' + userActionTab.login + '/following/'" class="action__link">
-        <i class="fa fa-users action__icon"></i>   
-        <span class="action__badge" v-if="userActionTab.following">{{ userActionTab.following }}</span>  
+        <IosPeopleIcon w="30px" h="30px"/>
+        <span class="action__badge" v-if="userActionTab.following">{{ userActionTab.following }}</span>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import IosHomeIcon from 'icons/ios-home'
+import IosBoxIcon from 'icons/ios-box'
+import IosPawIcon from 'icons/ios-paw'
+import IosPeopleIcon from 'icons/ios-people'
+import HelpCircledIcon from 'icons/help-circled'
+import AndroidContactIcon from 'icons/android-contact'
+
 export default {
   name: 'userprofileaction',
+  components: {
+    IosHomeIcon,
+    IosBoxIcon,
+    IosPawIcon,
+    IosPeopleIcon,
+    HelpCircledIcon,
+    AndroidContactIcon
+  },
   computed: {
     userActionTab () {
       return this.$store.getters.userActionTab
@@ -49,7 +64,7 @@ export default {
     position: fixed;
     z-index: 10;
     bottom: 0;
-    left: 0;    
+    left: 0;
     width: 100%;
     border-top: 1px solid grey;
     background: #0096d9;
@@ -62,19 +77,21 @@ export default {
 
     &__link {
       position: relative;
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: .7em 1.3em;
       color: #fff;
       text-decoration: none;
-    }
 
-    &__icon {    
-      font-size: 24px;
+      .ion{
+        fill: #fff;
+      }
     }
 
     &__badge {
       font-size: 12px;
-      padding: 2px 5px;
+      padding: .25em .5em;
       line-height: 1;
       background-color: rgba(27,31,35,0.08);
       border-radius: 20px;

@@ -4,13 +4,13 @@
 
     <a class="thropy"  title="See Git Award"
       :href="'http://git-awards.com/users/search?login=' + userData.login" target="_blank" rel="noopener">
-      <i class="fa fa-trophy" aria-hidden="true"></i>
+      <TrophyIcon w="50px" h="50px" />
     </a>
 
     <div class="is-bookmarked"
       :class="{'is-bookmarked--yes' : isBookmarked}" title="Bookmark User"
       @click="bookmarkUser">
-      <svg version="1.1" width="30" height="48" viewBox="0 0 10 16" class="octicon octicon-bookmark" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      <IosBookmarksIcon w="50px" h="50px" />
     </div>
 
     <div class="profile__identity">
@@ -25,11 +25,17 @@
 </template>
 
 <script>
+import TrophyIcon from 'icons/trophy'
+import IosBookmarksIcon from 'icons/ios-bookmarks'
 
 export default {
   // http://git-awards.com/users/search?login=mazipan
   name: 'userprofile',
   props: ['userData', 'isBookmarked'],
+  components: {
+    TrophyIcon,
+    IosBookmarksIcon
+  },
   computed: {
     profileImg: function () {
       let self = this
@@ -89,6 +95,7 @@ export default {
     top: 70px;
     right: 10px;
     cursor: pointer;
+    color: #282828;
 
     &--yes{
       color: #0096d9;
