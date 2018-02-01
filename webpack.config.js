@@ -157,8 +157,8 @@ module.exports = {
       },
       caches: {
         main: [':rest:'],
-        additional: [':externals:'],
-        optional: ['*.chunk.js']
+        // additional: [':externals:'],
+        // optional: ['*.chunk.js']
       },
       appShell: '/index.html',
 			cacheMaps: [
