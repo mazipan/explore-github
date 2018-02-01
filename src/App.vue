@@ -8,7 +8,7 @@
     <header-section @toggleSidebar="toggleSidebar"></header-section>
 
     <div class="loading" v-show="isLoading">
-      <img src="assets/images/loading.gif">
+      <img src="assets/images/loading.gif" alt="Loading">
     </div>
 
     <div class="main">

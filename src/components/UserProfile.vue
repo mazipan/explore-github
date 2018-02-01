@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <img v-lazy="profileImg" class="profile__img"/>
+    <img v-lazy="profileImg" class="profile__img" :alt="userData.name"/>
 
     <a class="thropy"  title="See Git Award"
       :href="'http://git-awards.com/users/search?login=' + userData.login" target="_blank" rel="noopener">

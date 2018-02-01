@@ -10,7 +10,7 @@
           <router-link to="/">
               <img class="header__brand"
                     v-lazy="'assets/images/github-explorer-white.png'"
-                    alt="Brand">
+                    alt="Vue Github Explorer Logo">
           </router-link>
       </div>
       <div class="header__nav pointer">

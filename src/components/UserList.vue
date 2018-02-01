@@ -22,7 +22,7 @@
 
         </div>
         <router-link :to="'/' + res.login + '/profile/'">
-          <img class="result__img" v-lazy="res.avatar_url" />
+          <img class="result__img" v-lazy="res.avatar_url" :alt="res.login"/>
           <span class="result__name">{{ res.login }}</span>
           <IosArrowRightIcon w="1em" h="1em"/>
         </router-link>

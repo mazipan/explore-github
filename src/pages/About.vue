@@ -1,6 +1,7 @@
 <template>
   <div class="grid__row about">
     <img v-lazy="'assets/images/github-explorer-blue.png'"
+        alt="Vue Github Explorer"
         @click="openSimplert"/>
 
     <h1>Vue Github Explorer</h1>

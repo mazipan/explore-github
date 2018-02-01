@@ -2,7 +2,7 @@
   <aside class="sidebar">
     <div class="sidebar__content">
       <div class="sidebar__head">
-        <img v-lazy="'assets/images/github-explorer-white.png'">
+        <img v-lazy="'assets/images/github-explorer-white.png'" alt="Vue Github Explorer Logo White">
       </div>
       <ul class="sidebar__menu">
 
