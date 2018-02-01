@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // read more about lazy loading router : https://router.vuejs.org/en/advanced/lazy-loading.html
-const Home = () => import('pages/Home.vue')
-const Profile = () => import('pages/Profile.vue')
-const Repositories = () => import('pages/Repositories.vue')
-const Following = () => import('pages/Following.vue')
-const Followers = () => import('pages/Followers.vue')
-const SearchResult = () => import('pages/SearchResult.vue')
-const About = () => import('pages/About.vue')
+const Home = () => import(/* webpackChunkName: "home" */ 'pages/Home.vue')
+const Profile = () => import(/* webpackChunkName: "profile" */ 'pages/Profile.vue')
+const Repositories = () => import(/* webpackChunkName: "repo" */ 'pages/Repositories.vue')
+const Following = () => import(/* webpackChunkName: "following" */ 'pages/Following.vue')
+const Followers = () => import(/* webpackChunkName: "followers" */ 'pages/Followers.vue')
+const SearchResult = () => import(/* webpackChunkName: "search" */ 'pages/SearchResult.vue')
+const About = () => import(/* webpackChunkName: "about" */ 'pages/About.vue')
 
 Vue.use(Router)
 
