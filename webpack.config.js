@@ -22,7 +22,8 @@ module.exports = {
   output: {
 		path: path.resolve(__dirname, "build"),
 		publicPath: '/explore-github/',
-		filename: 'bundle.js'
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
   module: {
     rules: [
