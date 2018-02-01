@@ -1,27 +1,27 @@
 <template>
   <div class="action">
     <div class="action__tab">
-      <router-link to="/" class="action__link" v-if="!userActionTab.hideHomeIcon">
+      <router-link alt="Home" to="/" class="action__link" v-if="!userActionTab.hideHomeIcon">
           <IosHomeIcon w="30px" h="30px"/>
       </router-link>
-      <router-link :to="'/' + userActionTab.login + '/profile/'"  v-if="userActionTab.hideHomeIcon" class="action__link">
+      <router-link alt="Profile" :to="'/' + userActionTab.login + '/profile/'"  v-if="userActionTab.hideHomeIcon" class="action__link">
           <IosHomeIcon w="30px" h="30px"/>
       </router-link>
     </div>
     <div class="action__tab">
-      <router-link :to="'/' + userActionTab.login + '/repositories/'" class="action__link">
+      <router-link alt="Repositories" :to="'/' + userActionTab.login + '/repositories/'" class="action__link">
         <IosBoxIcon w="30px" h="30px"/>
         <span class="action__badge" v-if="userActionTab.repos">{{ userActionTab.repos }}</span>
       </router-link>
     </div>
     <div class="action__tab" v-if="!userActionTab.isOrg">
-      <router-link :to="'/' + userActionTab.login + '/followers/'" class="action__link">
+      <router-link alt="Followers" :to="'/' + userActionTab.login + '/followers/'" class="action__link">
         <IosPawIcon w="30px" h="30px"/>
         <span class="action__badge" v-if="userActionTab.followers">{{ userActionTab.followers }}</span>
       </router-link>
     </div>
     <div class="action__tab" v-if="!userActionTab.isOrg">
-      <router-link :to="'/' + userActionTab.login + '/following/'" class="action__link">
+      <router-link alt="Following" :to="'/' + userActionTab.login + '/following/'" class="action__link">
         <IosPeopleIcon w="30px" h="30px"/>
         <span class="action__badge" v-if="userActionTab.following">{{ userActionTab.following }}</span>
       </router-link>

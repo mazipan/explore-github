@@ -7,6 +7,7 @@
       Bookmark user was not found!
       <br/>
     </div>
+
     <user-profile
       :isBookmarked="isBookmarkUser"
       :userData="userData"

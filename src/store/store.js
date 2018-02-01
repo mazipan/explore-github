@@ -11,16 +11,57 @@ const CACHEKEY_USERSEARCH = 'USER_SEARCH_'
 export const state = {
   isShowSidebar: false,
   bookmarkUser: 'mazipan',
-  userData: null,
-  userRepositories: null,
+  userData: {
+    "login": "mazipan",
+    "id": 7221389,
+    "avatar_url": "https://avatars0.githubusercontent.com/u/7221389?v=4",
+    "gravatar_id": "",
+    "followers_url": "https://api.github.com/users/mazipan/followers",
+    "following_url": "https://api.github.com/users/mazipan/following{/other_user}",
+    "name": "Irfan Maulana",
+    "bio": "JS & CSS Coder",
+    "public_repos": 67,
+    "followers": 209,
+    "following": 146
+  },
+  userRepositories: [{
+    "id": 85024408,
+    "stargazers_count": 1,
+    "name": "angular-indonesia-blogs",
+    "html_url": "https://github.com/mazipan/angular-indonesia-blogs"
+  },
+  {
+    "id": 85024771,
+    "stargazers_count": 1,
+    "name": "angular-indonesia-homepage",
+    "html_url": "https://github.com/mazipan/angular-indonesia-homepage"
+  },
+  {
+    "id": 84786946,
+    "stargazers_count": 6,
+    "name": "angularjs-basic-tutorial",
+    "html_url": "https://github.com/mazipan/angularjs-basic-tutorial"
+  },
+  {
+    "id": 71746668,
+    "stargazers_count": 3,
+    "name": "awesome-bemcss",
+    "html_url": "https://github.com/mazipan/awesome-bemcss"
+  },
+  {
+    "id": 106997826,
+    "stargazers_count": 2,
+    "name": "awesome-vue-list",
+    "html_url": "https://github.com/mazipan/awesome-vue-list"
+  }],
   userFollowers: null,
   userFollowing: null,
   userSearchResult: null,
   userActionTab: {
     login: 'mazipan',
-    repos: '',
-    follower: '',
-    following: '',
+    repos: 67,
+    follower: 200,
+    following: 146,
     isOrg: false,
     hideHome: false
   },

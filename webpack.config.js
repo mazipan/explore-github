@@ -151,17 +151,29 @@ module.exports = {
 		new OfflinePlugin({
 			relativePaths: false,
 			AppCache: false,
-			excludes: ['_redirects'],
+      responseStrategy: 'cache-first',
 			ServiceWorker: {
 				events: true
-			},
+      },
+      caches: {
+        main: [':rest:'],
+        additional: [':externals:'],
+        optional: ['*.chunk.js']
+      },
+      appShell: '/index.html',
 			cacheMaps: [
 				{
 					match: /.*/,
 					to: '/',
 					requestTypes: ['navigate']
 				}
-			],
+      ],
+      externals: [
+        'https://fonts.googleapis.com/css?family=Zilla+Slab',
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        'https://avatars0.githubusercontent.com/**'
+      ],
+      excludes: ['_redirects'],
 			publicPath: '/explore-github/'
 		})
   ] : []),
