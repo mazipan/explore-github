@@ -1,7 +1,6 @@
 <template>
   <div class="VueApp grid__row">
 
-
     <div class="sidebar-cover" v-show="isShowSidebar" @click="hideSidebar"></div>
     <sidebar v-bind:class="{'sidebar--open': isShowSidebar}"></sidebar>
 
@@ -29,9 +28,9 @@
 </template>
 
 <script>
-import Sidebar from 'components/Sidebar.vue'
 import HeaderSection from 'components/HeaderSection.vue'
 import UserProfileAction from 'components/UserProfileAction.vue'
+const Sidebar = () => import(/* webpackChunkName: "sidebar" */ 'components/Sidebar.vue')
 
 export default {
   name: 'app',

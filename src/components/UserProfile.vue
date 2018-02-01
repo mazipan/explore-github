@@ -38,10 +38,9 @@ export default {
   },
   computed: {
     profileImg: function () {
-      let self = this
       let img = 'assets/images/brand.png'
-      if (self.userData && self.userData.avatar_url) {
-        img = self.userData.avatar_url
+      if (this.userData && this.userData.avatar_url) {
+        img = `${this.userData.avatar_url}&s=100`
       }
       return img
     }
