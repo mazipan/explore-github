@@ -9,12 +9,15 @@ import store from './store'
 import App from './App.vue'
 
 import Ads from 'vue-google-adsense'
+import Simplert from 'vue2-simplert-plugin'
 
 Vue.use(require('vue-script2'))
 
 Vue.use(Ads.Adsense)
 Vue.use(Ads.InArticleAdsense)
 Vue.use(Ads.InFeedAdsense)
+
+Vue.use(Simplert)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,

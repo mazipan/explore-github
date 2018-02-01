@@ -12,7 +12,9 @@
     </div>
 
     <div class="main">
-      <transition name="fade" mode="out-in">
+      <transition
+        name="fade"
+        mode="out-in">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
@@ -21,6 +23,7 @@
 
     <user-profile-action></user-profile-action>
 
+    <simplert></simplert>
 
   </div>
 </template>
