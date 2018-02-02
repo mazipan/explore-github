@@ -7,12 +7,12 @@ const workbox = new WorkboxSW({
 
 
 workbox.router.registerRoute(
-  new RegExp('^https://api.github.com'),
+  new RegExp('^https:\/\/api\.github\.com.*'),
   workbox.strategies.staleWhileRevalidate()
 );
 
 workbox.router.registerRoute(
-  new RegExp('githubusercontent.com/'),
+  new RegExp('^https:\/\/avatars.*'),
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
@@ -33,7 +33,7 @@ self.addEventListener('push', (event) => {
 workbox.precache([
   {
     "url": "/explore-github/about.bundle.js",
-    "revision": "604bcaccf39dfd77a3b22620efcd73c7"
+    "revision": "88a96efffe2802e31628e3d8f2a346f8"
   },
   {
     "url": "assets/icons/android-icon-144x144.png",
@@ -149,23 +149,27 @@ workbox.precache([
   },
   {
     "url": "/explore-github/followers.bundle.js",
-    "revision": "d007b681ba2b81a03dba8878caf79bf4"
+    "revision": "ee26dde10879ef0f2e658271a0080e1d"
   },
   {
     "url": "/explore-github/following.bundle.js",
-    "revision": "5fd32ef944ac7bfcf6c2229377db7b8c"
+    "revision": "a0dc3040061abcafd5676c43e91f2ff3"
   },
   {
     "url": "/explore-github/home.bundle.js",
-    "revision": "13268f77fae2d2b7b476f35cb56fd417"
+    "revision": "5715b449d97a91ced8562afd5addcb79"
   },
   {
     "url": "/explore-github/index.html",
-    "revision": "f0aff8185c0f14921eb32281cb74aa15"
+    "revision": "281a696d14eb358942bbafe28d4420a7"
   },
   {
     "url": "/explore-github/main.bundle.js",
-    "revision": "08d8dd469465baf26d168bd00f235a04"
+    "revision": "388a595f09d40e8f163dad1a41693f1b"
+  },
+  {
+    "url": "/explore-github/manifest.bundle.js",
+    "revision": "1364884648fb26824adae8d1c432fbfc"
   },
   {
     "url": "/explore-github/manifest.json",
@@ -173,23 +177,23 @@ workbox.precache([
   },
   {
     "url": "/explore-github/profile.bundle.js",
-    "revision": "ac2b4cc12f832894d298a45b55be7dab"
+    "revision": "52d1a8c25d4b0059a7475124422f0fb4"
   },
   {
     "url": "/explore-github/repo.bundle.js",
-    "revision": "4b941f4ae6d87ccf7d7dc40ca229055e"
+    "revision": "b28057339125381a91992dca663b3640"
   },
   {
     "url": "/explore-github/repositories.bundle.js",
-    "revision": "9f3e71ac908049383d13b9d4cbff9e8e"
+    "revision": "2f2085685d3b75f3a4c846ea39d9e101"
   },
   {
     "url": "/explore-github/search.bundle.js",
-    "revision": "950b091eb1563e7f541d0d108525a87e"
+    "revision": "50f1929b376fd824cd2e7a128ba1c59c"
   },
   {
     "url": "/explore-github/sidebar.bundle.js",
-    "revision": "6d7e10476d3826de813a9bf7381729f7"
+    "revision": "009d6cf029160be3c4c11ce19f1f533b"
   },
   {
     "url": "/explore-github/style.css",
@@ -197,7 +201,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "3dc6cd5f361c7b243fca01592309a69f"
+    "revision": "d1ce5ffd7142e2e2187cd1ad5f72a77f"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",
