@@ -165,7 +165,7 @@ workbox.precache([
   },
   {
     "url": "/explore-github/main.bundle.js",
-    "revision": "388a595f09d40e8f163dad1a41693f1b"
+    "revision": "61cb6e5577ba1c3adcc956a5b03b9deb"
   },
   {
     "url": "/explore-github/manifest.bundle.js",
@@ -201,7 +201,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "d1ce5ffd7142e2e2187cd1ad5f72a77f"
+    "revision": "99a0b9051ad85ca3a18a6c3de7798dd4"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",
