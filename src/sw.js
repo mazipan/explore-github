@@ -12,7 +12,7 @@ workbox.router.registerRoute(
 );
 
 workbox.router.registerRoute(
-  new RegExp('^https://avatars0.githubusercontent.com/'),
+  new RegExp('githubusercontent.com/'),
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
