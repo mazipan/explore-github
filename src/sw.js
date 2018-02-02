@@ -7,12 +7,12 @@ const workbox = new WorkboxSW({
 
 
 workbox.router.registerRoute(
-  new RegExp('^https://api.github.com'),
+  new RegExp('^https:\/\/api\.github\.com.*'),
   workbox.strategies.staleWhileRevalidate()
 );
 
 workbox.router.registerRoute(
-  new RegExp('githubusercontent.com/'),
+  new RegExp('^https:\/\/avatars.*'),
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
