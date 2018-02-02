@@ -21,7 +21,7 @@ Vue.use(Simplert)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: 'assets/images/brand.png',
+  error: 'assets/icons/android-icon-36x36.png',
   loading: 'assets/images/loading.gif',
   attempt: 1
 })
