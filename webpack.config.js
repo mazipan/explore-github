@@ -5,8 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
+const workboxPlugin = require('workbox-webpack-plugin');
 
+const DIST = path.resolve(__dirname, "build");
 const SRC = path.resolve(__dirname, "src");
 const ASSETS = path.resolve(__dirname, "src/assets");
 const PAGES = path.resolve(__dirname, "src/pages");
@@ -20,7 +21,7 @@ module.exports = {
 	context: SRC,
   entry: './main.js',
   output: {
-		path: path.resolve(__dirname, "build"),
+		path: DIST,
 		publicPath: '/explore-github/',
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js'
@@ -146,36 +147,14 @@ module.exports = {
 				cascade: true,
 				drop_console: true
 			}
-		}),
+    }),
 
-		new OfflinePlugin({
-			relativePaths: false,
-			AppCache: false,
-      responseStrategy: 'cache-first',
-			ServiceWorker: {
-				events: true
-      },
-      caches: {
-        main: [':rest:'],
-        // additional: [':externals:'],
-        // optional: ['*.chunk.js']
-      },
-      appShell: '/index.html',
-			cacheMaps: [
-				{
-					match: /.*/,
-					to: '/',
-					requestTypes: ['navigate']
-				}
-      ],
-      externals: [
-        'https://fonts.googleapis.com/css?family=Zilla+Slab',
-        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        'https://avatars0.githubusercontent.com/**'
-      ],
-      excludes: ['_redirects'],
-			publicPath: '/explore-github/'
-		})
+    new workboxPlugin({
+      globDirectory: DIST,
+      globPatterns: ['**/*.{html,js,css,json,gif,png}'],
+      swDest: path.join(DIST, 'sw.js'),
+      swSrc: path.join(SRC, 'sw.js')
+    }),
   ] : []),
 
   devServer: {

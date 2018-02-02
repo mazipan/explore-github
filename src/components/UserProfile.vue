@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     profileImg: function () {
-      let img = 'assets/images/brand.png'
+      let img = 'https://avatars0.githubusercontent.com/u/7221389?v=4&s=100'
       if (this.userData && this.userData.avatar_url) {
         img = `${this.userData.avatar_url}&s=100`
       }

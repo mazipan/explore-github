@@ -26,7 +26,7 @@ Vue.use(VueLazyload, {
   attempt: 1
 })
 if (process.env.NODE_ENV === "production") {
-	require("./pwa");
+  require("./pwa");
 } else {
   Vue.config.devtools = true
 }

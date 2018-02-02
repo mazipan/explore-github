@@ -51,8 +51,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "octicons": "7.1.0",
-    "offline-plugin": "^4.9.0",
-    "postcss-loader": "^2.0.10",
+    "postcss-loader": "^2.1.0",
     "raw-loader": "^0.5.1",
     "replace-bundle-webpack-plugin": "^1.0.0",
     "script-ext-html-webpack-plugin": "^1.8.8",
@@ -62,7 +61,7 @@
     "style-loader": "^0.20.1",
     "vue-google-adsense": "1.0.3",
     "vue-lazyload": "1.1.4",
-    "vue-loader": "^14.0.3",
+    "vue-loader": "^14.1.1",
     "vue-script2": "2.0.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
@@ -71,7 +70,8 @@
     "vue2-simplert": "0.8.0",
     "vue2-simplert-plugin": "0.3.0",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "workbox-webpack-plugin": "2.1.2"
   },
   "babel": {
     "presets": [

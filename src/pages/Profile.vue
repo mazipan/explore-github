@@ -1,17 +1,17 @@
 <template>
   <div class="grid__row">
 
-    <user-profile 
+    <user-profile
       :isBookmarked="isBookmarkUser"
-      :userData="userData" 
+      :userData="userData"
       v-if="showingUserData">
     </user-profile>
 
-    <repository-list 
+    <repository-list
       :repositories="userRepositories"
       v-if="showingRepoData">
     </repository-list>
-    
+
   </div>
 </template>
 
@@ -46,22 +46,12 @@ export default {
     },
     userRepositories () {
       return this.$store.getters.userRepositories
-    }  
+    }
   },
   activated () {
     let self = this
-    let callApi = () => {      
-      self.$store.dispatch('getUserData', self.userShowing)
-      setTimeout(() => {
-        self.$store.dispatch('getUserRepositories', self.userShowing)
-      }, 1000)
-    }
-    
-    if (self.userData === null) {
-      callApi()
-    } else if (self.userData.login !== self.userShowing) {
-      callApi()
-    }
+    self.$store.dispatch('getUserData', self.userShowing)
+    self.$store.dispatch('getUserRepositories', self.userShowing)
   }
 }
 

@@ -23,8 +23,8 @@
 </template>
 
 <script>
+const RepositoryList = () => import(/* webpackChunkName: "repositories" */ 'components/RepositoryList.vue')
 import UserProfile from 'components/UserProfile.vue'
-import RepositoryList from 'components/RepositoryList.vue'
 import TrophyIcon from 'icons/trophy'
 
 export default {
@@ -67,21 +67,8 @@ export default {
   },
   activated () {
     let self = this
-    if (self.userData === null) {
-      console.log('user data null, bookmark user = ', self.bookmarkUser)
-      self.$store.dispatch('getUserData', self.bookmarkUser)
-      setTimeout(() => {
-        self.$store.dispatch('getUserRepositories', self.bookmarkUser)
-      }, 1000)
-    } else if (self.userData.login !== self.bookmarkUser) {
-      console.log('user data login ' + self.userData.login + ' !== bookmark user ', self.bookmarkUser)
-      self.$store.dispatch('getUserData', self.bookmarkUser)
-      setTimeout(() => {
-        self.$store.dispatch('getUserRepositories', self.bookmarkUser)
-      }, 1000)
-    } else {
-      console.log('else ', self.bookmarkUser)
-    }
+    self.$store.dispatch('getUserData', self.bookmarkUser)
+    self.$store.dispatch('getUserRepositories', self.bookmarkUser)
   }
 }
 
