@@ -12,7 +12,7 @@ workbox.router.registerRoute(
 );
 
 workbox.router.registerRoute(
-  new RegExp('^https://avatars0.githubusercontent.com/'),
+  new RegExp('githubusercontent.com/'),
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
@@ -197,7 +197,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "88e180c41aa445d978e9feab7e5c4e59"
+    "revision": "3dc6cd5f361c7b243fca01592309a69f"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",
