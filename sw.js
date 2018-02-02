@@ -11,6 +11,15 @@ workbox.router.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 );
 
+workbox.router.registerRoute(
+  new RegExp('^https://avatars0.githubusercontent.com/'),
+  workbox.strategies.cacheFirst({
+    cacheName: 'assets-cache',
+    cacheableResponse: {
+      statuses: [0, 200], // Make sure 0 is included in this list.
+    }
+  })
+);
 
 self.addEventListener('push', (event) => {
   const title = 'Get Started With Workbox';
@@ -188,7 +197,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "6a15fe95a0630612275023aae4f1aa74"
+    "revision": "94a104f5a173a786149ed2f0ca2ca47b"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",
