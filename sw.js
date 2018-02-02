@@ -1,6 +1,5 @@
 importScripts('/explore-github/workbox-sw.prod.v2.1.2.js');
 
-// Note: Ignore the error that Glitch raises about WorkboxSW being undefined.
 const workbox = new WorkboxSW({
   skipWaiting: true,
   clientsClaim: true
@@ -25,7 +24,7 @@ self.addEventListener('push', (event) => {
 workbox.precache([
   {
     "url": "/explore-github/about.bundle.js",
-    "revision": "faef77681fd5b4005d242e6298a43299"
+    "revision": "604bcaccf39dfd77a3b22620efcd73c7"
   },
   {
     "url": "assets/icons/android-icon-144x144.png",
@@ -141,15 +140,15 @@ workbox.precache([
   },
   {
     "url": "/explore-github/followers.bundle.js",
-    "revision": "254176e36de42d4ddcc73076c54d9982"
+    "revision": "d007b681ba2b81a03dba8878caf79bf4"
   },
   {
     "url": "/explore-github/following.bundle.js",
-    "revision": "d469bfecf16aed863bd1096d435184b7"
+    "revision": "5fd32ef944ac7bfcf6c2229377db7b8c"
   },
   {
     "url": "/explore-github/home.bundle.js",
-    "revision": "9d679875318a9caa22ec80062262de50"
+    "revision": "13268f77fae2d2b7b476f35cb56fd417"
   },
   {
     "url": "/explore-github/index.html",
@@ -157,7 +156,7 @@ workbox.precache([
   },
   {
     "url": "/explore-github/main.bundle.js",
-    "revision": "4b0e47c22f1a8e9962b7c48bd10b2be5"
+    "revision": "08d8dd469465baf26d168bd00f235a04"
   },
   {
     "url": "/explore-github/manifest.json",
@@ -165,23 +164,23 @@ workbox.precache([
   },
   {
     "url": "/explore-github/profile.bundle.js",
-    "revision": "19b461b8e0bbd1731940ba1e9850037e"
+    "revision": "ac2b4cc12f832894d298a45b55be7dab"
   },
   {
     "url": "/explore-github/repo.bundle.js",
-    "revision": "408345c6c17294ac3fcdebb1d4391355"
+    "revision": "4b941f4ae6d87ccf7d7dc40ca229055e"
   },
   {
     "url": "/explore-github/repositories.bundle.js",
-    "revision": "1a146fe00ff958a5b2b873e822f7ea73"
+    "revision": "9f3e71ac908049383d13b9d4cbff9e8e"
   },
   {
     "url": "/explore-github/search.bundle.js",
-    "revision": "0dfd91b865b93eee2794017ffd441607"
+    "revision": "950b091eb1563e7f541d0d108525a87e"
   },
   {
     "url": "/explore-github/sidebar.bundle.js",
-    "revision": "15c28aae1e229ccc6b040929c62414ce"
+    "revision": "6d7e10476d3826de813a9bf7381729f7"
   },
   {
     "url": "/explore-github/style.css",
@@ -189,7 +188,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "92df53bb1266dc28c16db2ba7c33962f"
+    "revision": "6a15fe95a0630612275023aae4f1aa74"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",
