@@ -1,4 +1,5 @@
 {
+  "gcm_sender_id": "653317226796",
 	"name": "Github Explorer",
 	"short_name": "GH-Explorer",
 	"start_url": "/explore-github/",
